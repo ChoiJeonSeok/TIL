@@ -40,3 +40,4 @@ git push -u origin master
 
 ### (3) 간단한 그림으로 보는 Github 사용 과정
 ![Untitled](https://user-images.githubusercontent.com/82266289/224491303-00ab586c-dac6-4dd3-9cc2-49489601e067.png)
+- 로컬 저장소의 commit 이력은 원격 저장소에 반영되어 어떤 변화가 있었는지 파악할 수 있게 한다.
