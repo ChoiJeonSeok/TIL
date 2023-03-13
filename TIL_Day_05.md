@@ -58,7 +58,7 @@ master 브랜치로 이동하게 되면, test.txt 파일이 그대로 남아있�
 >따라서 브랜치를 이동하기 전에, 꼭 커밋을 완료하고 이동하도록 한다.
 <br>
 
-## [2] Branch scenario
+## [2] Branch scenario **예시**
 
 > git branch와 git switch를 통해 브랜치를 `조회, 생성, 이동`하는 실습을 진행합니다.
 > 
