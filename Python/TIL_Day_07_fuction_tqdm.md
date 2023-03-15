@@ -234,4 +234,3 @@ ex) **`enumerate(['apple', 'banana', 'orange'])`**
 - **`strip()`**
 문자열.strip()
 문자열의 양쪽 끝에서 특정 문자를 제거하는 함수
--
