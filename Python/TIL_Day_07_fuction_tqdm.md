@@ -1,8 +1,8 @@
 ## tqdm
-<br>
 
 - 진행상황을 출력할 수 있게하는 함수
-![image](https://user-images.githubusercontent.com/82266289/224945482-f6b3f6ea-bf0f-48fb-939f-a8cf9df8e835.png)
+
+-   ![image](https://user-images.githubusercontent.com/82266289/224945482-f6b3f6ea-bf0f-48fb-939f-a8cf9df8e835.png)
 
 # 함수 정리
 
