@@ -1,6 +1,7 @@
 # Django project 과정
 
-<h1 style="text-align:center; border-bottom: 8px;">목차</h1> 
+## 목차 
+<hr style="border-style: solid; border-width: 8px;">
 
 1. [Django 설치 및 프로젝트 생성][1]
    - [가상환경 생성 및 활성화][11]
