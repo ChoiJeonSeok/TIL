@@ -1,14 +1,8 @@
-<style>
-hr {
-  height: 8px;
-  border: solid;
-  background-color: #333;
-}
-</style>
-
 # Django project 과정
 
-# 목차
+<h1 style="text-align:center;border-style: solid; border-width: 8px;">목차</h1> 
+<hr style="border-style: solid; border-width: 8px;">
+
 
 1. [Django 설치 및 프로젝트 생성][1]
    - [가상환경 생성 및 활성화][11]
@@ -36,7 +30,8 @@ hr {
    - [스태틱 파일 및 미디어 파일 설정][63]
    - [WSGI 설정][64]
 <br><br>
-<hr>
+<hr style="border-style: solid; border-width: 8px;">
+
 
 ## 1. Django 설치 및 프로젝트 생성
 
