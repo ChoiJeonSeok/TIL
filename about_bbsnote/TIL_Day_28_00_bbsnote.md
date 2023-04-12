@@ -33,11 +33,30 @@
 
 ## 1. Django 설치 및 프로젝트 생성
 
-내용 1
-
 ### 가상환경 생성 및 활성화
 
-내용 2
+1. Anaconda Prompt 실행
+   - 시작 메뉴에서 "Anaconda Prompt"를 찾아 실행합니다.
+2. 가상환경 생성
+   - conda create --name 가상환경이름 python=3.9
+   - "가상환경이름"에는 원하는 이름을 작성한다.
+   - python 버전은 명시해야 원하는 버전의 가상환경을 생성할 수 있다.
+3. 가상환경 활성화
+   - 가상환경 생성이 완료되면 가상환경을 활성화한다.
+   - conda activate 가상환경이름
+
+### Django 설치
+
+1. Django 설치
+   - 가상환경이 활성화된 상태에서 Django를 설치한다.
+   - pip install django
+2. Django 프로젝트를 생성할 폴더로 이동
+   - cd C:\Users\username\projects
+3. Django 프로젝트 생성
+   - django-admin startproject myproject
+   - myproject라는 폴더가 생성되며, 그 안에 Django 프로젝트의 기본 구조와 파일이 생성된다.
+4. 생성된 프로젝트 폴더로 이동한다.
+   - cd myproject
 
 [1]: #Django-설치-및-프로젝트-생성
 [11]: #가상환경-생성-및-활성화
