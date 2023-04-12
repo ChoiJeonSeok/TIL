@@ -2,10 +2,10 @@
 
 ## 목차 
 
-1. [Django 설치 및 프로젝트 생성][1]
-   - [가상환경 생성 및 활성화][11]
-   - [Django 설치][12]
-   - [Django 프로젝트 생성][13]
+[1. Django 설치 및 프로젝트 생성][1]
+   - 가상환경 생성 및 활성화
+   - Django 설치
+   - Django 프로젝트 생성
 2. [앱 생성 및 모델 작성][2]
    - [앱 생성][21]
    - [모델 작성][22]
@@ -31,7 +31,7 @@
 <hr style="border-style: solid; border-width: 8px;">
 
 
-## 1. Django 설치 및 프로젝트 생성
+# 1. Django 설치 및 프로젝트 생성
 
 ### 가상환경 생성 및 활성화
 
@@ -50,18 +50,18 @@
 1. Django 설치
    - 가상환경이 활성화된 상태에서 Django를 설치한다.
    - pip install django
-2. Django 프로젝트를 생성할 폴더로 이동
+  
+### Django 프로젝트 생성
+
+1. Django 프로젝트를 생성할 폴더로 이동
    - cd C:\Users\username\projects
-3. Django 프로젝트 생성
+2. Django 프로젝트 생성
    - django-admin startproject myproject
    - myproject라는 폴더가 생성되며, 그 안에 Django 프로젝트의 기본 구조와 파일이 생성된다.
-4. 생성된 프로젝트 폴더로 이동한다.
+3. 생성된 프로젝트 폴더로 이동한다.
    - cd myproject
 
 [1]: #1.-Django-설치-및-프로젝트-생성
-[11]: #가상환경-생성-및-활성화
-[12]: #Django-설치
-[13]: #Django-프로젝트-생성
 [2]: #앱-생성-및-모델-작성
 [21]: #앱-생성
 [22]: #모델-작성
@@ -83,3 +83,16 @@
 [62]: #데이터베이스-설정
 [63]: #스태틱-파일-및-미디어-파일-설정
 [64]: #WSGI-설정
+
+<h2 id="section-1">Section 1</h2>
+<p>Content of section 1</p>
+<h2 id="section-2">Section 2</h2>
+<p>Content of section 2</p>
+<h2 id="section-3">Section 3</h2>
+<p>Content of section 3</p>
+
+<ul>
+  <li><a href="#section-1">Section 1</a></li>
+  <li><a href="#section-2">Section 2</a></li>
+  <li><a href="#section-3">Section 3</a></li>
+</ul>
