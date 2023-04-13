@@ -114,21 +114,21 @@ class Post(models.Model):
 <details>
   <summary>코드 설명</summary>
   <ol>
-  <li>from django.db import models: Django에서 제공하는 models 모듈을 가져옵니다. 이 모듈은 데이터베이스 모델링을 위한 다양한 클래스와 필드를 제공합니다.</li>
+  <li>from django.db import models : <br>Django에서 제공하는 models 모듈을 가져옵니다. 이 모듈은 데이터베이스 모델링을 위한 다양한 클래스와 필드를 제공합니다.</li>
 
-   <li>class Post(models.Model):: Post라는 모델 클래스를 선언합니다. 이 클래스는 models.Model 클래스를 상속받아 정의됩니다.</li>
+   <li>class Post(models.Model): :<br>Post라는 모델 클래스를 선언합니다. 이 클래스는 models.Model 클래스를 상속받아 정의됩니다.</li>
 
-   <li>title = models.CharField(max_length=200): CharField는 문자열 필드를 정의하는 클래스입니다. title 필드는 최대 길이가 200인 문자열 필드입니다.</li>
+   <li>title = models.CharField(max_length=200) : <br>CharField는 문자열 필드를 정의하는 클래스입니다. title 필드는 최대 길이가 200인 문자열 필드입니다.</li>
 
-   <li>content = models.TextField(): TextField는 긴 문자열을 저장할 수 있는 필드를 정의하는 클래스입니다. content 필드는 길이 제한이 없는 문자열 필드입니다.</li>
+   <li>content = models.TextField() : <br>TextField는 긴 문자열을 저장할 수 있는 필드를 정의하는 클래스입니다. content 필드는 길이 제한이 없는 문자열 필드입니다.</li>
 
-   <li>created_at = models.DateTimeField(auto_now_add=True): DateTimeField는 날짜와 시간을 저장하는 필드를 정의하는 클래스입니다. auto_now_add=True는 객체가 생성될 때 자동으로 현재 날짜와 시간을 저장하도록 설정한 옵션입니다.</li>
+   <li>created_at = models.DateTimeField(auto_now_add=True) : <br>DateTimeField는 날짜와 시간을 저장하는 필드를 정의하는 클래스입니다. auto_now_add=True는 객체가 생성될 때 자동으로 현재 날짜와 시간을 저장하도록 설정한 옵션입니다.</li>
 
-   <li>updated_at = models.DateTimeField(auto_now=True): updated_at 필드는 객체가 저장될 때마다 자동으로 현재 날짜와 시간으로 갱신됩니다. 따라서 auto_now=True 옵션을 사용합니다.</li>
+   <li>updated_at = models.DateTimeField(auto_now=True): <br>updated_at 필드는 객체가 저장될 때마다 자동으로 현재 날짜와 시간으로 갱신됩니다. 따라서 auto_now=True 옵션을 사용합니다.</li>
 
-   <li>def __str__(self):: __str__ 메서드는 객체를 문자열로 표현할 때 사용하는 메서드입니다.</li>
+   <li>def __str__(self): : <br>__str__ 메서드는 객체를 문자열로 표현할 때 사용하는 메서드입니다.</li>
 
-   <li>return self.title: __str__ 메서드에서는 객체의 title 필드 값을 반환합니다. 이를 통해 Post 객체를 문자열로 출력할 때는 해당 객체의 title 값이 출력됩니다.</li></ol>
+   <li>return self.title : <br>__str__ 메서드에서는 객체의 title 필드 값을 반환합니다. 이를 통해 Post 객체를 문자열로 출력할 때는 해당 객체의 title 값이 출력됩니다.</li></ol>
 </details>
 
 
