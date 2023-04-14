@@ -155,10 +155,61 @@ $ python manage.py migrate
 
 <h3 id="section-31">뷰 함수 작성</h3>
 
+```
+# views.py
+from django.shortcuts import render
+
+def post_list(request):
+    posts = Post.objects.all()
+    context = {'posts': posts}
+    return render(request, 'post_list.html', context)
+```
+1. post_list 함수 정의
+   - post 모델의 모든 객체를 posts 변수에 저장.
+   - context 딕셔너리에 posts 값을 담아 템플릿으로 전달한다.
+   - render 함수란, 템플릿을 특정 context 와 함께 렌더링하는 기능을 수행하는 함수이다. 
+     - 첫 번째 인자로 request 객체, 두 번째 인자로 렌더링할 템플릿의 경로, 세 번째 인자로 템플릿에 전달할 context 데이터를 받는다.
+     - 넘겨받은 곳의 {{posts}}라는 부분에 posts 값이 들어간다.
+
 <h3 id="section-32">URL 패턴 작성</h3>
+
+```
+# urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.post_list, name='post_list'),
+]
+```
+1. 빈 문자열 URL 패턴을 post_list 뷰 함수와 연결한다. name 매개변수로 URL 패턴에 이름을 지정했다.
 
 <h3 id="section-33">템플릿 작성</h3>
 
+```
+<!-- post_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>게시판</h1>
+  {% for post in posts %}
+    <div class="post">
+      <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.content }}</p>
+      <p>작성자: {{ post.author.username }}</p>
+    </div>
+  {% empty %}
+    <p>게시글이 없습니다.</p>
+  {% endfor %}
+{% endblock %}
+```
+1. base.html을 확장한다.
+   - content 블록에 게시판을 출력한다. 
+   - posts 변수를 for 문을 사용하여 반복하면서 게시글의 제목, 내용, 작성자를 출력한다. 
+   - {% empty %} 이 태그는 posts가 비어있을 때 출력할 내용을 정의한다.
+  
+2. 게시판 접속하기
+   - 로컬 서버에서 실행 중인 경우 "http://127.0.0.1:8000/post_list" 또는 "http://localhost:8000/post_list"에 접속하면 게시판이 나타난다.
 
 <h2 id="section-4">4. 정적 파일 관리</h2>
 
