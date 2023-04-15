@@ -261,9 +261,46 @@ urlpatterns = [
    - 이 변수는 정적 파일이 참조될 URL을 지정하는 변수이다. 
    - 예시: STATIC_URL = '/static/'
 
+
 <h3 id="section-43">정적 파일 사용</h3>
 
 1. base.html 템플릿에서 정적 파일 사용.
+   - static 템플릿 태그를 이용해서 css/styles.css 파일을 가져온다.
+
+   ```
+   {% load static %}
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
+   </head>
+   <body>
+      <div class="content">
+         {% block content %}
+         {% endblock %}
+      </div>
+   </body>
+   </html>
+   ```
+2. post_list.html 템플릿에서 static 태그로 css 파일 적용하기
+   ```
+   {% extends 'base.html' %}
+
+   {% block content %}
+      <h1>Posts</h1>
+      <ul>
+         {% for post in posts %}
+               <li><a href="#">{{ post.title }}</a></li>
+         {% endfor %}
+      </ul>
+   {% endblock %}
+   ```
+   - {% extends 'base.html' %}로 base.html 상속. 따라서 content 내용만 작성.
+   - base.html의 content 내용은 사용하지 않고, post_list.html에서 작성한 내용으로 대체.
+3. overriding => 부토 템플릿에서 정의한 블록을 자식 템플릿에서 다시 정의하거나 변경하는 것. 필요에 따라 새로 또는 수정해서 사용할 수 있다.
 
 <h2 id="section-5">5. 디버깅 및 테스트</h2>
 
