@@ -186,39 +186,84 @@ urlpatterns = [
 
 <h3 id="section-33">템플릿 작성</h3>
 
-```
-<!-- post_list.html -->
-{% extends 'base.html' %}
+1. base.html
+   - 웹페이지의 뼈대가 되는 부분이며, 다른 HTML 파일들이 상속하여 사용할 수 있도록 구성된다.
+   - templates 디렉토리에 생성한다.
+   ```
+      <!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>{% block title %}Django Project{% endblock %}</title>
+      {% block head %}
+      <!-- 기본 head 내용 -->
+      {% endblock %}
+   </head>
+   <body>
+      {% block content %}
+      <!-- 기본 content 내용 -->
+      {% endblock %}
+      {% block footer %}
+      <!-- 기본 footer 내용 -->
+      {% endblock %}
+   </body>
+   </html>
+   ```
 
-{% block content %}
-  <h1>게시판</h1>
-  {% for post in posts %}
-    <div class="post">
-      <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-      <p>{{ post.content }}</p>
-      <p>작성자: {{ post.author.username }}</p>
-    </div>
-  {% empty %}
-    <p>게시글이 없습니다.</p>
-  {% endfor %}
-{% endblock %}
-```
-1. base.html을 확장한다.
+   ```
+   <!-- post_list.html -->
+   {% extends 'base.html' %}
+
+   {% block content %}
+   <h1>게시판</h1>
+   {% for post in posts %}
+      <div class="post">
+         <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+         <p>{{ post.content }}</p>
+         <p>작성자: {{ post.author.username }}</p>
+      </div>
+   {% empty %}
+      <p>게시글이 없습니다.</p>
+   {% endfor %}
+   {% endblock %}
+   ```
+2. base.html을 확장한다.
    - content 블록에 게시판을 출력한다. 
    - posts 변수를 for 문을 사용하여 반복하면서 게시글의 제목, 내용, 작성자를 출력한다. 
    - {% empty %} 이 태그는 posts가 비어있을 때 출력할 내용을 정의한다.
   
-2. 게시판 접속하기
+3. 게시판 접속하기
    - 로컬 서버에서 실행 중인 경우 "http://127.0.0.1:8000/post_list" 또는 "http://localhost:8000/post_list"에 접속하면 게시판이 나타난다.
 
 <h2 id="section-4">4. 정적 파일 관리</h2>
 
 <h3 id="section-41">정적 파일 디렉토리 생성</h3>
 
+1. blog 애플리케이션 디렉토리 안에 static 디렉토리를 생성해야 한다. 
+   - static 안에는 앱에서 사용될 정적 파일들이 저장된다.
+   - 애플리케이션과 같은 이름(blog)의 디렉토리를 생성한다. 나중에 다른 앱에서 같은 이름의 정적 파일을 생성할 경우 구분하기 위해서이다.
+   - 위 과정을 마친 후의 대략적인 디렉토리 구조
+   ```
+   project/
+    blog/
+        static/
+            blog/
+    templates/
+        base.html
+        post_list.html
+    manage.py
+   ```
+
 <h3 id="section-42">정적 파일 설정</h3>
+
+1. 프로젝트 설정 파일 settings.py
+   - STATIC_URL 변수를 지정한다.
+   - 이 변수는 정적 파일이 참조될 URL을 지정하는 변수이다. 
+   - 예시: STATIC_URL = '/static/'
 
 <h3 id="section-43">정적 파일 사용</h3>
 
+1. base.html 템플릿에서 정적 파일 사용.
 
 <h2 id="section-5">5. 디버깅 및 테스트</h2>
 
