@@ -306,10 +306,81 @@ urlpatterns = [
 
 <h3 id="section-51">디버깅</h3>
 
+1. 디버깅이란?
+   - 코드에서 발생한 오류를 찾고 수정하는 과정을 뜻한다. 
+   - Django에서는 오류가 발생하면 서비스를 실행했을 때 웹페이지 상에 오류 메시지를 띄워 준다. 
+   - 디버깅 페이지를 활성화하려면 settings.py 파일에 DEBUG=True 설정을 한다.
+   - settings.py 파일에서 LOGGING 설정으로 로그를 사용하여 디버깅을 할 수도 있다.
+2. pdb
+   - python 자체 디버거
+
+   ```
+   def divide(a, b):
+    result = a / b
+    return result
+
+   num1 = 10
+   num2 = 0
+   
+
+   import pdb; pdb.set_trace() # 중단점 설정
+
+   result = divide(num1, num2)
+
+   print(result)
+   ```
+   - 코드를 실행하면 중단점에서 코드가 멈추고 pdb prompt가 나타난다. 
+   - 확인하고 싶은 값을 prompt에 입력하면 된다.
+   ```
+   > /path/to/script.py(8)divide()
+   -> result = a / b
+   (Pdb) a
+   10
+   (Pdb) b
+   0
+   ```
+
 <h3 id="section-52">테스트 코드 작성</h3>
 
+1. tests.py
+   - 각 앱 별로 tests.py 파일을 생성해야 한다. 테스트 케이스 클래스를 작성하고 메소드를 통해 각각의 테스트를 수행한다. 
+   - assert 문 사용.
+<details>
+  <summary>테스트 코드</summary>
+   from django.test import TestCase
+   from django.urls import reverse
+
+   from .models import Post
+
+   class PostModelTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        Post.objects.create(title='Test Post', body='Test content')
+
+    def test_title_content(self):
+        post = Post.objects.get(id=1)
+        expected_title = f'{post.title}'
+        self.assertEqual(expected_title, 'Test Post')
+
+    def test_post_list_view(self):
+        response = self.client.get(reverse('post_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Test Post')
+</details>
+<details>
+  <summary>테스트 코드 설명</summary>
+  <ul><li>
+위 코드에서는 Post 모델과 관련된 테스트를 작성하고 있다. </li><li>
+setUpTestData 메소드를 이용해서 테스트 데이터를 생성하고, 이후에 test_title_content 메소드에서 Post 객체의 title 필드와 비교하는 테스트를 작성하고 있다. </li><li>또한 test_post_list_view 메소드에서는 post_list URL에 대한 요청을 보내서 응답 코드가 200인지, 그리고 'Test Post'라는 텍스트가 응답에 포함되어 있는지를 검증하는 테스트를 작성하고 있다.</ul>
+</details>
 <h3 id="section-53">테스트 실행</h3>
 
+1. python manage.py test 명령어
+   - Django는 모든 앱의 tests.py 파일을 검색하고, 그 파일 내에 정의된 모든 테스트 케이스를 실행한다. 
+   - 각각의 테스트가 성공하면 . 출력
+   - 실패하면 F 출력한다.
+   - 이후 실패와 성공의 결과가 요약된다.
 
 <h2 id="section-6">6. 배포</h2>
 
