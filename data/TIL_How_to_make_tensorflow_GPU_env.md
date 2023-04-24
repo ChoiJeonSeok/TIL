@@ -22,4 +22,11 @@
 - ANACONDA.NAVIGATOR가 있는가?
 - 모두 확인했다면 설치된 CUDA를 시스템에 적용하기 위해 재부팅한다.
 
-# 
+# 적용 단계
+- cudnn-11.2-windows-x64-v8.1.1.33.zip의 압축을 푼다.
+- CUDA 폴더에 붙여넣는다. 
+- bin include lib을 환경변수에 등록한다.
+- Anaconda navigator에서 tensorflow-gpu를 받는다. 2.6.0 버전.
+  
+
+![완성](https://user-images.githubusercontent.com/82266289/234044575-a4c9c559-925e-4982-b620-09637d872e44.png)
