@@ -103,21 +103,44 @@
 
 ![image](https://user-images.githubusercontent.com/82266289/235305985-5d4d569d-a802-4488-95b8-a1f08dbfc1e6.png)
 
-Accuracy = TP + TN / (TP + TN + FP + FN)
-<table>
-  <tr>
-    <td></td>
-    <th style="background-color:#f2f2f2">실제 양성 클래스</th>
-    <th style="background-color:#f2f2f2">실제 음성 클래스</th>
-  </tr>
-  <tr>
-    <th style="background-color:#f2f2f2">예측 양성 클래스</th>
-    <td style="background-color:#b3ffb3; font-weight:bold">TP (True Positive)</td>
-    <td style="background-color:#ff9999; font-weight:bold">FP (False Positive)</td>
-  </tr>
-  <tr>
-    <th style="background-color:#f2f2f2">예측 음성 클래스</th>
-    <td style="background-color:#ff9999; font-weight:bold">FN (False Negative)</td>
-    <td style="background-color:#b3ffb3; font-weight:bold">TN (True Negative)</td>
-  </tr>
-</table>
+
+## 정오분류표(confusion matrix)
+|            | 실제 양성 클래스 | 실제 음성 클래스 |
+|------------|-------------------|-------------------|
+| 예측 양성 클래스 | TP (True Positive)  | FP (False Positive) |
+| 예측 음성 클래스 | FN (False Negative) | TN (True Negative)  |
+
+
+![image](https://user-images.githubusercontent.com/82266289/235308299-2aaf06ac-45d6-44a2-b7fd-086069352bd3.png)
+
+### 정확도, 정분류율 (Accuracy)
+- 전체 관찰치 중 정분류된 관찰치의 비중
+![image](https://user-images.githubusercontent.com/82266289/235308399-9929c36a-a8cd-452f-bdee-0e4aca38081d.png)
+
+### 정밀도(Precision)
+- Positive로 예측한 것 중에서 실제 범주도 Positive인 데이터의 비율.
+
+![image](https://user-images.githubusercontent.com/82266289/235308444-6fcf2c73-835a-4d54-807b-f8cd83b59e7b.png)
+
+### 재현율(Recall)
+- 실제 범주가 Positive인 것 중에서 Positive로 예측된 데이터의 비율.
+
+![image](https://user-images.githubusercontent.com/82266289/235308478-e652b1c9-03a1-43bb-a26f-4e7487108755.png)
+
+### ROC(Receiver operating characteristic) 도표
+- 분류의 결정임계값(threshold)에 따라 달라지는 TPR(민감도, sensitivity)과 FPR(1-특이도, 1-specificity)의 조합을 도표로 나타냄.
+1. TPR: True Positive Rate(=sensitivity(민감도))
+  - 1인 케이스에 대해 1로 잘 예측한 비율.
+2. FPR: False Positive Rate(=1-specificity(특이도))
+  - 0인 케이스에 대해 1로 잘못 예측한 비율.
+3. 임계값이 1이면 FPR=0, TPR=0
+4. 임계값을 1에서 0으로 낮춰감에 따라 FPR과 TPR은 동시에 증가함.
+5. FPR이 증가하는 정도보다 TPR이 빠르게 증가하면 이상적. 그래프의 왼쪽 위 꼭지점에 가까울수록 좋다.
+
+![image](https://user-images.githubusercontent.com/82266289/235308711-b43ecb8c-aaee-4516-88ab-5b107cbba805.png)
+
+
+### AUC(Area Under the Curve)
+- ROC 곡선 아래의 면적
+- 가운데 대각선의 직선은 랜덤한 수준의 이진분류에 대응되며, 이 경우 AUC는 0.5임
+- 1에 가까울수록 좋은 수치. FPR이 작을 때 얼마나 큰 TPR을 얻는지에 따라 결정됨.
