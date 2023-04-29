@@ -67,4 +67,57 @@
 - 과대적합을 막고 일반화 오차를 줄이기 위해서는, 새로운 데이터에 얼마나 잘 일반화될지를 파악해야 함.
 - 모델 적합에 사용된 자료를 평가를 위해 재활용하지 않고, 평가만을 위한 데이터를 확보할 필요가 있음.
 
+## 모델 검증 및 평가를 위한 데이터의 구분
+### Hold-out 방식
+- 주어진 자료를 다음의 세 그룹으로 랜덤하게 분할한 뒤, 주어진 목적에 따라 각각 모델의 훈련, 검증, 평가에 활용함.
+1. 훈련 데이터(Training data)
+  - 모델의 학습을 위해 사용되는 자료
+2. 검증 데이터(Validation data)
+  - 훈련 자료로 적합한 모델을 최적의 성능으로 튜닝하기 위해 사용되는 자료.
+  - 훈련에 필요한 하이퍼파라미터(hyperparameter)를 조정하거나, 변수선택(model selecting) 등에 이용.
+3. 평가 데이터(Test data)
+  - 훈련 및 검증 자료로 적합된 최종 모형이 미래에 주어질 새로운 자료에 대하여 얼마나 좋은 성과를 갖는지를 평가하는데 사용되는 자료.
 
+### K-fold 교차검증(Cross-validation) 방식
+- 자료의 수가 충분하지 않은 경우에는 훈련 데이터에서 너무 많은 양의 데이터를 검증 또는 평가 데이터에 뺏기지 않도록 교차 검정(cross-validation) 기법을 사용.
+- 자료를 균등하게 k개의 그룹으로 분할한 뒤
+- 각 j에 대하여, j번째 그룹을 제외한 나머지 k-1개 그룹의 자료를 이용하여 모델을 적합(fit).
+- j번째 그룹의 자료에 적합된 모델을 적용한 뒤 예측오차를 구함.
+- j=1, ..., k에 대하여 위의 과정을 반복한 뒤, k개의 예측오차의 평균을 구함.
+- 예측오차의 평균값을 기준으로, 모델의 검증 또는 평가를 수행.
+
+### 편향-분산 트레이드(Bias-Variance Trade off)
+- 모델의 복잡한 정도에 따라 훈련 데이터와 평가 데이터의 예측오차는 일반적으로 다음과 같은 패턴을 보임.
+
+![image](https://user-images.githubusercontent.com/82266289/235305758-4a278c12-9853-4955-9f68-5c2feaa879fc.png)
+
+### 과대적합을 막기 위한 방법
+- 훈련 데이터를 많이 확보한다.
+- 모델의 복잡도를 낮춘다.
+  - 특성 변수의 수를 줄이거나 차원축소.
+  - 파라미터에 규제(regularization)을 적용.
+
+# 머신러닝 모델의 평가지표
+## 회귀(Regression) 모델의 평가 지표
+![image](https://user-images.githubusercontent.com/82266289/235305958-24a3599a-dc00-4e14-8195-b094236a3358.png)
+
+![image](https://user-images.githubusercontent.com/82266289/235305985-5d4d569d-a802-4488-95b8-a1f08dbfc1e6.png)
+
+Accuracy = TP + TN / (TP + TN + FP + FN)
+<table>
+  <tr>
+    <td></td>
+    <th style="background-color:#f2f2f2">실제 양성 클래스</th>
+    <th style="background-color:#f2f2f2">실제 음성 클래스</th>
+  </tr>
+  <tr>
+    <th style="background-color:#f2f2f2">예측 양성 클래스</th>
+    <td style="background-color:#b3ffb3; font-weight:bold">TP (True Positive)</td>
+    <td style="background-color:#ff9999; font-weight:bold">FP (False Positive)</td>
+  </tr>
+  <tr>
+    <th style="background-color:#f2f2f2">예측 음성 클래스</th>
+    <td style="background-color:#ff9999; font-weight:bold">FN (False Negative)</td>
+    <td style="background-color:#b3ffb3; font-weight:bold">TN (True Negative)</td>
+  </tr>
+</table>
