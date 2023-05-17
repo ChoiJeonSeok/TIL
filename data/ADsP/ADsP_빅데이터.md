@@ -132,3 +132,6 @@
 ### 빅데이터 분석 방법론
 - 분석 기획, 데이터 준비, 데이터 분석, 시스템 구현, 평가 및 전개
 - 단방향 순서가 아닌 각 단계가 여러 단계를 가리킬 수도 있다.
+
+### 프로젝트관리 지침의 프로젝트 관리 체계
+- 통합(Integration), 이해관계자(Stakeholder), 범위(Scope), 자원(Resource), 시간(time), 원가(Cost), 리스크(Risk), 품질(Quality), 조달(Procurement), 의사소통(Communication)의 10개 주제 그룹으로 구성되어 있다.
