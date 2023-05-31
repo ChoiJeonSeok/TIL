@@ -74,7 +74,7 @@ R은 통계 분석 및 데이터 시각화를 위한 프로그래밍 언어 및 
 
 ### 데이터베이스
 
-- [SQL (Structured Query Language)]()
+- [SQL (Structured Query Language)](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/SQL.md)
 
     - 관계형 데이터베이스 (MySQL, PostgreSQL)와 NoSQL 데이터베이스 (MongoDB, Cassandra) 이해
 
