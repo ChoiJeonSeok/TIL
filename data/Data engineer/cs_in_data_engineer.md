@@ -79,12 +79,25 @@ R은 통계 분석 및 데이터 시각화를 위한 프로그래밍 언어 및 
     - 관계형 데이터베이스 (MySQL, PostgreSQL)와 NoSQL 데이터베이스 (MongoDB, Cassandra) 이해
 
 1. 분산 시스템
-    - [Hadoop](), [Spark](), [Apache Kafka]()등의 분산 시스템 이해
+    - [Hadoop](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/Hadoop.md), [Spark](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/spark.md), [Apache Kafka](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/kafka.md)등의 분산 시스템 이해
 
 2. 데이터 처리
     - 데이터 파이프라인 구축
+      - 데이터 파이프라인은 데이터의 흐름을 관리하여 데이터를 추출, 변환, 적재하는 작업을 자동화하는 시스템이다.
+      - 대용량 데이터의 원활한 처리와 분석을 위해 데이터 파이프라인을 구축하고 운영할 수 있어야 한다.
+      - 주요 개념: 데이터 소스 추출, 데이터 변환, 데이터 저장, 스케줄링, 모니터링 등
     - 배치 처리 및 스트리밍 처리
+        - 배치 처리: 대량의 데이터를 정해진 주기에 따라 일괄적으로 처리하는 방식. 주로 일일 또는 주간 등 정기적인 작업에 사용된다.
+        - 스트리밍 처리: 실시간으로 데이터를 처리하는 방식. 데이터가 흐름에 따라 동적으로 처리되며, 지연 시간이 최소화된다.
+        - 주요 개념: 배치 작업 스케줄링, 데이터 청크 처리, 스트림 처리 파이프라인, 상태 관리 등
+
     - ETL (Extract, Transform, Load) 프로세스 이해
+        - ETL은 데이터 웨어하우스 또는 분석 시스템에 데이터를 추출, 변환, 적재하는 프로세스.
+        - 추출(Extract): 다양한 소스 시스템에서 필요한 데이터를 추출한다.
+        - 변환(Transform): 추출한 데이터를 목적에 맞게 가공, 정제, 변환한다.
+        - 적재(Load): 가공된 데이터를 목적지에 저장하거나 분석 시스템에 적재한다.
+        - 주요 개념: 데이터 추출 방법, 데이터 변환 작업, 데이터 적재 전략, 데이터 품질 관리 등
+
 
 3. 클라우드 플랫폼
     - AWS, Azure, Google Cloud Platform 등의 클라우드 플랫폼 활용
