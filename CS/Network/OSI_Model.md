@@ -2,6 +2,9 @@
 
 OSI(Open Systems Interconnection) 모델은 네트워크 프로토콜을 계층별로 분류하여 설명하는 개념적인 모델.
 
+![image](https://github.com/ChoiJeonSeok/TIL/assets/82266289/744ee7bd-3204-48e1-b717-c6972db4e8a1)
+
+
 ## 1. 물리 계층 (Physical Layer)_최하위 계층_L1
 - 데이터를 비트 단위로 전송
 - 데이터의 전기적, 기계적 특성과 물리적 연결을 다룸
