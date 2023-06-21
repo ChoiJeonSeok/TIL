@@ -42,19 +42,20 @@
 <br><br>
 
 6. [Network Protocols]()
-   - Hypertext Transfer Protocol (HTTP)
    - Domain Name System (DNS)
    - File Transfer Protocol (FTP)
    - Simple Mail Transfer Protocol (SMTP)
    - Dynamic Host Configuration Protocol (DHCP)
+   - Hypertext Transfer Protocol (HTTP)
+   - Hypertext Transfer Protocol Secure(HTTPS)
 <br><br>
 
-7. [Network Monitoring and Analysis]()
+1. [Network Monitoring and Analysis]()
    - Network Monitoring Tools
    - Packet Analysis Tools
 <br><br>
 
-8. [Cloud Networking]()
+1. [Cloud Networking]()
    - Virtual Network
    - Hybrid Network
    - Intercloud Connectivity
