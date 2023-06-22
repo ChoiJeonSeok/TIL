@@ -50,12 +50,12 @@
    - Hypertext Transfer Protocol Secure(HTTPS)
 <br><br>
 
-1. [Network Monitoring and Analysis]()
+7. [Network Monitoring and Analysis]()
    - Network Monitoring Tools
    - Packet Analysis Tools
 <br><br>
 
-1. [Cloud Networking]()
+8. [Cloud Networking]()
    - Virtual Network
    - Hybrid Network
    - Intercloud Connectivity
