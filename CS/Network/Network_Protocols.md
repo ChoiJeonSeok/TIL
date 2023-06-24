@@ -1,4 +1,4 @@
-
+# 네트워크 프로토콜
 ## DNS (Domain Name System)
 
 - DNS는 도메인 이름을 IP 주소로 변환하는 시스템이다.
