@@ -10,6 +10,3 @@ Google Cloud Storage<br>
 Amazon S3<br>
 </p>
 
-<h1>생활코딩 WEB1 - HTML & Internet 끝</h1>
-<ol><h3>느낀점</h3>
-<li>더 빠르게 배워도 될 것 같다.</li></ol>
