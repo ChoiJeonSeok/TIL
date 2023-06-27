@@ -54,3 +54,13 @@ find . -type f -name "*.txt" -exec grep "keyword" {} \;
 - -exec command {} \;
 - find . -name "*.txt" -exec sh -c 'command1; command2; command3' {} \;
   -  shell을 호출하여 여러 명령어를 순차적으로 실행.
+
+## ubuntu를 설치한 후 실행해볼만한 명령어들
+- sudo apt update && sudo apt upgrade
+- sudo apt install vim
+- sudo apt install python3-pip
+- sudo apt install git
+
+### 구글 크롬 설치 예시
+- wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+- sudo apt install ./google-chrome-stable_current_amd64.deb
