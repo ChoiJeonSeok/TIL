@@ -8,4 +8,5 @@
 6. _not written_ [앱 개발 (App Development)]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
 7. _not written_ [인공지능 (Artificial Intelligence)]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
 8. _not written_ [클라우드 컴퓨팅 (Cloud Computing)]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
-9. _not written_ [윈도우 함수(Window Function)]("https://github.com/ChoiJeonSeok/TIL/CS/Window_Fucntion")
+9. [윈도우 함수(Window Function)]("https://github.com/ChoiJeonSeok/TIL/CS/Window_Fucntion")
+10. _not written_ [OLAP(Online Analytical Processing)]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
