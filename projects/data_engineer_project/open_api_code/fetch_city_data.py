@@ -2,7 +2,7 @@ import requests
 import xml.etree.ElementTree as ET
 import pandas as pd
 
-def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949"):
+def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949", check="N"):
     # 매개변수 예외처리
     if fileDir is None:
         return print("fileDir을 입력해주세요.")
@@ -11,7 +11,7 @@ def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949"):
     
     # API 엔드포인트와 KEY 값을 연결하여 URL 생성
     base_url = "http://openapi.seoul.go.kr:8088/"
-    key = "write your api key"
+    key = "put your api key"
     url = f"{base_url}{key}/xml/citydata/1/5/{place}"
 
     # API 요청 보내기
@@ -60,6 +60,10 @@ def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949"):
 
         # 데이터를 DataFrame으로 변환
         new_df = pd.DataFrame(results)
+        if new_df.empty:
+            raise ValueError("데이터를 불러오는데 실패했습니다. key 값과 매개변수를 확인해주세요.")
+        elif check.lower() == "y":
+            print(new_df.tail(1))
 
         if mode == "new":
             # 새로운 파일로 저장
