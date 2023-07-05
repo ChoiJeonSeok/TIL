@@ -2,16 +2,15 @@ import requests
 import xml.etree.ElementTree as ET
 import pandas as pd
 
-def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949", check="N"):
-    # 매개변수 예외처리
+def fetch_citizen_data(fileDir, place="empty", mode="new", encoding="cp949"):
     if fileDir is None:
-        return print("Please enter the file directory.")
+        return print("fileDir을 입력해주세요.")
     elif place == "empty":
-        return print("Please enter the tourist attraction in the 'place' parameter.")
+        return print("관광지를 place에 입력해주세요.")
     
     # API 엔드포인트와 KEY 값을 연결하여 URL 생성
     base_url = "http://openapi.seoul.go.kr:8088/"
-    key = "put your api key"
+    key = "497344754c736d613130324173574354"
     url = f"{base_url}{key}/xml/citydata/1/5/{place}"
 
     # API 요청 보내기
@@ -25,20 +24,14 @@ def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949", check=
         # XML 파싱
         root = ET.fromstring(data)
         
-        # 추출하고자 하는 태그들을 리스트로 저장
+    # 추출하고자 하는 태그들을 리스트로 저장
         tags = ['AREA_NM', 'AREA_CD', 'AREA_CONGEST_LVL', 'AREA_CONGEST_MSG', 
-                'AREA_PPLTN_MIN', 'AREA_PPLTN_MAX', 'MALE_PPLTN_RATE', 
-                'FEMALE_PPLTN_RATE', 'PPLTN_RATE_0', 'PPLTN_RATE_10', 
-                'PPLTN_RATE_20', 'PPLTN_RATE_30', 'PPLTN_RATE_40', 
-                'PPLTN_RATE_50', 'PPLTN_RATE_60', 'PPLTN_RATE_70', 
-                'RESNT_PPLTN_RATE', 'NON_RESNT_PPLTN_RATE', 'PPLTN_TIME',
-                'ACDNT_OCCR_DT', 'EXP_CLR_DT', 'ACDNT_TYPE', 'ACDNT_DTYPE',
-                'ACDNT_INFO', 'ACDNT_X', 'ACDNT_Y', 'ACDNT_TIME',
-                'TEMP', 'SENSIBLE_TEMP', 'MAX_TEMP', 'MIN_TEMP', 'HUMIDITY',
-                'WIND_DIRCT', 'WIND_SPD', 'PRECIPITATION', 'PRECPT_TYPE', 'PCP_MSG',
-                'UV_INDEX_LVL', 'UV_INDEX', 'UV_MSG', 'PM25_INDEX', 'PM25',
-                'PM10_INDEX', 'PM10', 'AIR_MSG', 'WARN_MSG',
-                'EVENT_NM','EVENT_PERIOD','EVENT_PLACE','EVENT_ETC_DETAIL']
+            'AREA_PPLTN_MIN', 'AREA_PPLTN_MAX', 'MALE_PPLTN_RATE', 
+            'FEMALE_PPLTN_RATE', 'PPLTN_RATE_0', 'PPLTN_RATE_10', 
+            'PPLTN_RATE_20', 'PPLTN_RATE_30', 'PPLTN_RATE_40', 
+            'PPLTN_RATE_50', 'PPLTN_RATE_60', 'PPLTN_RATE_70', 
+            'RESNT_PPLTN_RATE', 'NON_RESNT_PPLTN_RATE', 'PPLTN_TIME']
+
 
         # 데이터를 저장할 리스트
         results = []
@@ -60,15 +53,11 @@ def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949", check=
 
         # 데이터를 DataFrame으로 변환
         new_df = pd.DataFrame(results)
-        if new_df.empty:
-            raise ValueError("Failed to load data. Please check the key value and parameters.")
-        elif check.lower() == "y":
-            print(new_df.tail(1))
 
         if mode == "new":
             # 새로운 파일로 저장
             new_df.to_csv(fileDir, index=False, encoding=encoding)
-            print("Data has been saved to a new CSV file.")
+            print("데이터를 새로운 CSV 파일로 저장했습니다.")
         elif mode == "append":
             try:
                 # 기존 CSV 파일 로드
@@ -79,13 +68,13 @@ def fetch_city_data(fileDir, place="empty", mode="new", encoding="cp949", check=
 
                 # 추가된 데이터를 CSV 파일로 저장
                 merged_df.to_csv(fileDir, index=False, encoding=encoding)
-                print(f"Data has been appended to the existing CSV file({fileDir}).")
+                print("데이터를 기존 CSV 파일에 추가했습니다.")
             except FileNotFoundError:
                 # 기존 파일이 없을 경우, 새로운 파일로 저장
                 new_df.to_csv(fileDir, index=False, encoding=encoding)
-                print("The existing CSV file doesn't exist, so the data has been saved to a new file.")
+                print("기존 CSV 파일이 없어 데이터를 새로운 파일로 저장했습니다.")
         else:
-            print("Invalid mode. Please choose 'new' or 'append'.")
+            print("잘못된 모드입니다. 'new' 또는 'append'를 선택하세요.")
     else:
         # API 요청 실패
-        print("API request failed.")
+        print("API 요청에 실패했습니다.")
