@@ -36,3 +36,10 @@ fetch_city_data("output.csv", place="광화문·덕수궁", mode="new")
 
 # 기존 파일에 데이터 추가
 fetch_city_data("output.csv", place="광화문·덕수궁", mode="append")
+```
+
+| url                 | master_url           | app_name   | script_path           | csv_path               | hdfs_path                  |
+|---------------------|----------------------|------------|-----------------------|------------------------|----------------------------|
+| http://example.com  | spark://example-master  | example-app  | /path/to/script.py  | /path/to/output.csv  | /hdfs/path/to/output.csv  |
+
+
