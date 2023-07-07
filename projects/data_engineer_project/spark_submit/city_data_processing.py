@@ -26,7 +26,7 @@ def signal_handler(sig, frame):
         # 작동 시간 출력
         print(f"Program executed for {duration_str}")
 
-        # 프로그램이 얼마나 작동되었는지로그 파일에 기록
+        # 프로그램이 얼마나 작동되었는지 로그 파일에 기록
         current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_message = f"{current_time} - Program executed for {duration_str}\n"
         with open("log.txt", "a") as log_file:
