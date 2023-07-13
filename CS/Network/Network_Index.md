@@ -26,7 +26,7 @@
 4. [Routing](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Routing.md)
    - Routing Protocol
    - Routing Table
-   - Router Operation
+   - Router Operation(not yet)
    - Interior Routing
    - Exterior Routing
    - Static Routing
@@ -59,3 +59,9 @@
    - Virtual Network
    - Hybrid Network
    - Intercloud Connectivity
+
+9. [Web Crawling]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
+   - Web Crawling
+   - API Crawling
+   - Ethics and Legal Aspects of Web Crawling
+   - Blocking Web Crawling
