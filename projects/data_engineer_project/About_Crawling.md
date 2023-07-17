@@ -57,3 +57,68 @@ Disallow: /
 
 ### 윤리적인 목적
 - 법의 테두리 안에서, 해당 웹 사이트를 공격하지 않는 선에서 크롤링은 진행되어야 한다. 
+- 사람이 직접 해당 웹 사이트를 방문하여 사용하는 수준이 적절하다.
+
+예시 코드
+
+```python
+import requests
+from urllib.parse import urljoin
+from urllib.robotparser import RobotFileParser
+
+def is_allowed_by_robots_txt(url, user_agent):
+    try:
+        # URL에서 도메인 부분 추출
+        domain = urljoin(url, '/')
+
+        # robots.txt 파일 URL 생성
+        robots_txt_url = urljoin(domain, 'robots.txt')
+
+        # robots.txt 파일 가져오기
+        response = requests.get(robots_txt_url)
+
+        # 가져온 robots.txt 파일을 파싱하여 준수 여부 확인
+        if response.status_code == 200:
+            robot_parser = RobotFileParser()
+            robot_parser.parse(response.text.splitlines())
+
+            # 해당 크롤러 봇의 이름으로 설정한 user_agent에 대한 Disallow 지시사항 확인
+            return robot_parser.can_fetch(user_agent, url)
+        
+        # robots.txt 파일이 없는 경우는 기본적으로 허용
+        return True
+    
+    except Exception as e:
+        print(f"Error checking robots.txt: {e}")
+        return False
+
+# 크롤링을 진행할 URL과 사용자 에이전트를 설정합니다.
+url_to_crawl = "크롤링을 진행할 사이트의 주소"
+user_agent = "지정하지 않으면 python-requests/x.x 등의 기본 user_agent 사용. 이때 x.x는 requests 라이브러리의 버전 번호."
+
+# robots.txt를 준수하는지 확인
+if is_allowed_by_robots_txt(url_to_crawl, user_agent):
+    # 크롤링 코드를 작성합니다.
+    # (robots.txt를 준수하는 경우에만 크롤링 코드를 실행합니다.)
+    print("robots.txt를 준수하여 크롤링을 진행합니다.")
+else:
+    print("robots.txt를 준수하지 않아 크롤링이 차단되었습니다.")
+```
+
+1. 도메인 부분을 추출하는 이유 
+   1. 크롤링을 진행할 URL에서 도메인 부분을 추출하는 이유는 robots.txt 파일을 가져오기 위함.
+   2. robots.txt 파일은 웹 사이트의 루트 도메인에서만 확인할 수 있음.
+   3. robots.txt 파일은 해당 도메인 아래의 모든 페이지 및 경로에 대한 크롤링 규칙을 담고 있음.
+2. 추출 결과 예시
+   1. 도메인 부분을 추출하면 해당 URL의 루트 도메인이 얻어지게 된다.
+   2. `https://www.google.com/doodles` 에서 추출하면 `https://www.google.com/` 가 된다.
+3. robots 파일 URL 생성
+   1. URL의 도메인 부분과 robots.txt를 합치면 robots.txt 파일의 URL이 생성된다.
+   2. urljoin() 함수를 사용하면 상대경로를 절대 경로로 변환할 수 있다. 
+4. robots.txt 파일을 가져온다는 것의 의미.
+   1. requests 라이브러리를 사용하여 생성된 robots.txt 파일의 URL에 GET 요청을 보내서 해당 파일의 내용을 가져오는 것을 의미함.
+   2. 해당 웹 사이트의 크롤링 규칙을 확인할 수 있음.
+5. robots.txt 파싱 후 준수 확인 과정
+   1. urllib.robotparser 라이브러리로 robots.txt 파일을 파싱.
+   2. 크롤러가 특정 User-Agent로 어떤 URL에 접근할 수 있는지 확인 가능.
+   3. can_fetch() method로 특정 User-Agent와 URL이 허용되는지 여부를 확인할 수 있다.
