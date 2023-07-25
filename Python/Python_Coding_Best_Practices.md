@@ -73,7 +73,7 @@
 
 9. **Pythonic한 코드를 작성해보자.**: 다른 언어에서는 하기 어려운 표현들을 Python에서는 할 수 있다. Python의 고유한 기능이니 잘 활용하면 간결하고 가독성 높은 코드를 작성할 수 있다.
 
-    [Pythonic한 코드 작성법]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
+    [Pythonic한 코드 작성법]("https://github.com/ChoiJeonSeok/TIL/Python/Pythonic.md")
 
 10. **코드 리팩토링**: 처음부터 완벽한 코드를 작성하기는 어렵다. 우선 목적에 맞게 코드를 작성한 후 검토하면서 각 부분을 수정하거나 개선하는 것이 좋은 코드를 작성하는 지름길이다. 
     
