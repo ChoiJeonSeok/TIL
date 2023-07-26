@@ -58,7 +58,7 @@
 
 7. **PEP 8 스타일 가이드를 따르자**: Python의 공식 스타일 가이드로, 코드의 일관성을 유지하고 가독성을 높이는 데 도움이 된다.
 
-    [PEP 8 스타일 가이드]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
+    [PEP 8 스타일 가이드](https://github.com/ChoiJeonSeok/TIL/blob/master/etc/Coming_Soon.md)
 
 8. **에러 처리**: 에러가 발생할 확률은 항상 있다고 생각하고, 어떤 에러가 있을 수 있는지 고민해야 한다. Python에서는 try-except 구문을 이용하여 예외를 처리할 수 있다. 
    1. try 블록에서 에러가 발생할 가능성이 있는 코드를 작성한다.
@@ -73,8 +73,8 @@
 
 9. **Pythonic한 코드를 작성해보자.**: 다른 언어에서는 하기 어려운 표현들을 Python에서는 할 수 있다. Python의 고유한 기능이니 잘 활용하면 간결하고 가독성 높은 코드를 작성할 수 있다.
 
-    [Pythonic한 코드 작성법]("https://github.com/ChoiJeonSeok/TIL/Python/Pythonic.md")
+    [Pythonic한 코드 작성법](https://github.com/ChoiJeonSeok/TIL/blob/master/Python/Pythonic.md)
 
 10. **코드 리팩토링**: 처음부터 완벽한 코드를 작성하기는 어렵다. 우선 목적에 맞게 코드를 작성한 후 검토하면서 각 부분을 수정하거나 개선하는 것이 좋은 코드를 작성하는 지름길이다. 
     
-    [코드 리팩토링 체크리스트]("https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md")
+    [코드 리팩토링 체크리스트](https://github.com/ChoiJeonSeok/TIL/tree/master/etc/Coming_Soon.md)
