@@ -23,6 +23,13 @@ print(squares)
 
 두 경우 모두 출력: `[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]`
 
+
+- 리스트 컴프리헨션을 사용하면 For 루프와 If 문을 간결하게 결합할 수 있다.
+
+```python
+[x for x in range(10) if x % 2 == 0]
+```
+
 **2. 제너레이터**
 
 - 제너레이터는 리스트나 튜플과 같은 반복 가능한 객체이다. 
@@ -371,3 +378,20 @@ ValueError: Temperature below -273.15 is not possible.
 - `temperature`에 값이 실제로 입력되기 전에 `setter`가 먼저 실행된다고 봐도 좋다.
 - `@property`가 붙은 `temperature` 메서드는 `getter`이다.
   <br>호출되면 `_temperature` 인스턴스 변수의 값을 반환한다.
+
+### 11. 긴 여러 줄의 문자열 생성
+- `"""` 또는 `'''` 삼중 따옴표를 사용하면 감싸인 문자열 내에서는 줄 바꿈을 자유롭게 사용할 수 있다.
+
+```python
+long_string = """아주 긴 문자열도
+언제든지 줄바꿈을 할
+수 있다."""
+```
+
+### 12. 리스트 정렬 확인
+- `all()` 함수와 `zip()` 함수를 사용하여 리스트 정렬을 확인할 수 있다.
+
+```python
+def is_sorted(lst):
+  return all(a <= b for a, b in zip(lst, lst[1:]))
+```
