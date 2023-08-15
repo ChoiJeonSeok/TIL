@@ -8,7 +8,7 @@
 ```java
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("안녕하세요, 세상아!");
+        System.out.println("Hello, world!");
     }
 }
 ```
@@ -24,7 +24,7 @@ public class HelloWorld {
 #### 예시
 ```python
 def hello_world():
-    print("안녕하세요, 세상아!")
+    print("Hello, world!")
 
 hello_world()
 ```
@@ -42,7 +42,7 @@ hello_world()
 #include <stdio.h>
 
 int main() {
-    printf("안녕하세요, 세상아!\n");
+    printf("Hello, world!\n");
     return 0;
 }
 ```
