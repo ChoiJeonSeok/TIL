@@ -18,7 +18,7 @@
 
 Java에서는 객체를 새로운(Young) 세대와 오래된(Old) 세대로 분류하여, 세대별로 가비지 컬렉션을 수행한다. 이는 효율성을 높이는 데 도움이 된다. 대부분의 객체는 사용되지 않게 되는 경우가 많으므로 Young 세대에서 먼저 가비지 컬렉션을 수행한다. 
 
-[Young 세대와 Old 세대, Permanent(Metaspace_Java8~) 세대]()
+[Young 세대와 Old 세대, Permanent(Metaspace_Java8~) 세대](https://github.com/ChoiJeonSeok/TIL/blob/master/Java/Garbage_Collection_generation.md)
 
 ## 4. 다양한 가비지 컬렉션 알고리즘
 
