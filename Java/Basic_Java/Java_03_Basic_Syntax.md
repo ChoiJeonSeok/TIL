@@ -34,7 +34,7 @@
    - break와 continue
    - 레이블 (label)
 
-## [4. 배열](arrays)
+## [4. 배열](https://github.com/ChoiJeonSeok/TIL/blob/master/Java/Basic_Java/Java_Basic_Syntax/Java_arrays.md)
    - 배열 선언 및 초기화
    - 배열의 길이와 인덱스
    - 다차원 배열
