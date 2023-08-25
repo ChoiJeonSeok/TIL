@@ -190,17 +190,40 @@ public class BrokenImmutableCalendar {
 
 Date date = new Date();
 BrokenImmutableCalendar calendar = new BrokenImmutableCalendar(date);
-date.setTime(0); // calendar 객체의 내부 상태 변경 가능
+date.setTime(0); // date 객체의 상태 변경 (1970년 1월 1일로 설정)
+                // calendar 객체의 내부 상태 변경 가능
+
+System.out.println(calendar.getDate()); // 변경된 날짜와 시간 출력
 ```
 #### 불변성을 유지하려면?
 - 불변 클래스가 아닌 Date 객체의 참조를 외부에 노출하고 있어 클래스 외부에서 date 참조를 통해 내부 상태를 변경할 수 있다.
-- 불변성을 유지하려면, 내부 참조를 외부에 노출하지 않도록 주의해야 한다. 내부 Date 객체의 복사본을 반환하면 문제를 해결할 수 있다.
+- 불변성을 유지하려면, 외부 참조 내용을 clone을 통해 복사본을 만들어 줘야 한다. 또한, 내부 참조를 외부에 노출하지 않도록 주의해야 한다. 내부 Date 객체의 복사본을 반환하면 문제를 해결할 수 있다.
+- C 언어의 pointer와 비슷하다. 복사본을 생성자에 전달, 반환하는 것은 다른 주소값이며, 원본을 전달, 반환하는 것은 같은 주소값이다. 같은 주소값이면 해당 주소값의 값을 변경했을 때 같이 바뀌게 되어 불변성이 깨진다.
 
 ```java
-public Date getDate() {
-  return (Date) date.clone(); // 복사본 반환
+import java.util.Date;
+
+public class GoodImmutableCalendar {
+  private final Date internalDate;
+
+  public GoodImmutableCalendar(Date externalDate) {
+    this.internalDate = (Date) externalDate.clone(); // 복사본을 저장
+  }
+
+  public Date getDate() {
+    return (Date) internalDate.clone(); // 복사본 반환
+  }
 }
+
+// Main 메서드 또는 다른 실행 부분
+Date date = new Date();                        // 현재 날짜와 시간을 가진 객체 생성
+GoodImmutableCalendar calendar = new GoodImmutableCalendar(date); // calendar 생성
+date.setTime(0);                               // date 객체의 상태 변경 (1970년 1월 1일로 설정)
+
+System.out.println(calendar.getDate());        // 여전히 원본 날짜와 시간 출력 (복사본 반환)
 ```
+
+
 
 ### 3. 하위 클래스에서 불변성 깨뜨리기
 
