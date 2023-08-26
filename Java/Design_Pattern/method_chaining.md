@@ -227,24 +227,29 @@ System.out.println(calendar.getDate());        // 여전히 원본 날짜와 시
 
 ### 3. 하위 클래스에서 불변성 깨뜨리기
 
-상속을 허용하고, 하위 클래스에서 불변성을 깨뜨릴 수 있는 메서드를 추가하면 문제가 발생할 수 있다.
+- 상속을 허용하고, 하위 클래스에서 불변성을 깨뜨릴 수 있는 메서드를 추가하면 문제가 발생할 수 있다.
+- 상속 : Java에서 클래스는 상속이 가능하다. 불변 클래스를 상속하여 새로운 필드와 메서드를 추가할 수도 있다.
+- 불변성 깨짐 : 하위 클래스에서 새로운 필드를 추가하고 그 값을 변경하는 메서드를 제공하면 불변성이 깨진다.(setter)
 
 #### 예시:
 
 ```java
-public class ImmutableBase {
-  private final int value;
+public class ImmutableBase { // 불변성을 유지하려는 상위 클래스
+  private final int value;  // 그래서 value 필드를 final로 선언함.
 
   public ImmutableBase(int value) {
     this.value = value;
   }
 }
 
-public class MutableSubclass extends ImmutableBase {
-  private int anotherValue;
+public class MutableSubclass extends ImmutableBase { // ImmutableBase를 상속받은 하위 클래스
+  private int anotherValue; // 새로운 필드를 추가함.
 
   public MutableSubclass(int value, int anotherValue) {
-    super(value);
+    super(value); 
+    // 부모 클래스인 ImmutableBase의 생성자를 호출하는 구문.
+    // MutableSubclass의 생성자의 매개변수 중 하나인 value는 상위 클래스의 필드.
+    // 따라서 MutableSubclass를 생성할 때 상위 클래스의 생성자도 호출해야 하므로 super(value) 사용.
     this.anotherValue = anotherValue;
   }
 
@@ -254,6 +259,11 @@ public class MutableSubclass extends ImmutableBase {
   }
 }
 ```
+- MutableSubclass에 의해 상위 클래스의 value 필드가 변경되는 것은 아니다. 그러나 ImmutableBase의 의도에 따르면 이 클래스를 상속받는 모든 하위 클래스도 불변성을 유지해야 한다. 
+- 그런데 MutableSubclass 에서 새로운 가변 필드를 추가하고 그 값을 변경할 수 있는 메서드를 제공하면, 상위 클래스인 ImmutableBase의 원래 목적에 어긋나게 된다.
+- 하위 클래스에서 새로운 필드를 추가하는 것 자체는 문제가 되지 않지만, 그 필드값 역시 불변해야 한다. 상위 클래스의 불변성을 지키기 위한 목적에 따라, 새로운 필드의 값도 변경되지 않아야 한다.
+- 상위 클래스로부터 상속을 받을 때는 해당 클래스의 목적에 따라 변경되어야 한다. 상위 클래스의 불변성이 깨지지 않았지만, setAnotherValue 와 같은 메서드의 추가로 인해 불변성을 유지하려는 상위 클래스의 의미가 없어지게 되어 사실상 불변성이 깨진 것으로 해석할 수 있게 되는 것이다.
+
 
 이러한 경우들은 불변 객체를 설계하고 구현할 때 주의해야 할 부분들로, 객체의 불변성을 유지하려면 이러한 실수를 피해야 한다.
 
