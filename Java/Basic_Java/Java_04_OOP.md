@@ -247,3 +247,157 @@ class Car extends Vehicle {
 
 자바, C++, 파이썬 등 대부분의 현대 프로그래밍 언어는 객체 지향 패러다임을 지원하며, 시스템 설계, 웹 개발, 모바일 앱 개발 등 다양한 분야에서 활용된다.
 
+## 객체 지향 설계 원칙 (Object-Oriented Design Principles) - SOLID
+1. 단일 책임 원칙(Single Responsibility Principle, SRP)
+- 정의: 하나의 클래스는 하나의 책임만 가져야 한다.
+- 예시: 'User' 클래스는 사용자 정보만 관리하며, 로그를 작성하는 기능은 'Logger' 클래스가 담당한다.
+  #### 잘못된 예
+```java
+// User 클래스가 사용자 관리와 로그 작성 두 가지 책임을 가짐
+public class User {
+    public void create() {
+        // 사용자 생성 로직
+        log("User created");
+    }
+
+    public void log(String message) {
+        // 로그 작성 로직
+    }
+}
+```
+
+#### 올바른 예
+```java
+// User 클래스는 사용자 관리만 담당
+public class User {
+    public void create() {
+        // 사용자 생성 로직
+        Logger.log("User created");
+    }
+}
+
+// Logger 클래스는 로그 작성만 담당
+public class Logger {
+    public static void log(String message) {
+        // 로그 작성 로직
+    }
+}
+```
+
+- 사용 이유: 클래스가 하나의 책임만을 가질 때, 수정이 필요할 경우 해당 클래스만 수정하면 되므로 유지 보수가 쉽다.
+<br><br>
+
+2. 개방-폐쇄 원칙(Open-Closed Principle, OCP)
+- 정의: 소프트웨어 엔터티는 확장에는 열려 있고, 수정에는 닫혀 있어야 한다.
+- 예시: 'Shape' 클래스를 상속받아 새로운 도형을 추가하는 것은 가능하지만, 'Shape' 클래스 자체는 수정하지 않아야 한다.
+```java
+public interface Shape {
+    void draw();
+}
+
+public class Circle implements Shape {
+    public void draw() {
+        // 원 그리기 로직
+    }
+}
+
+public class Square implements Shape {
+    public void draw() {
+        // 사각형 그리기 로직
+    }
+}
+
+public class ShapeDrawer {
+    public void drawShape(Shape shape) {
+        shape.draw();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Circle과 Square 객체 생성
+        Shape circle = new Circle();
+        Shape square = new Square();
+
+        // ShapeDrawer 객체 생성
+        ShapeDrawer shapeDrawer = new ShapeDrawer();
+
+        // drawShape 메서드를 통해 도형 그리기
+        shapeDrawer.drawShape(circle);  // 원 그리기 로직이 실행
+        shapeDrawer.drawShape(square);  // 사각형 그리기 로직이 실행
+    }
+}
+```
+- 사용 이유: 기존 코드를 변경하지 않고도 시스템의 기능을 확장할 수 있다.
+
+3. 리스코프 치환 원칙(Liskov Substitution Principle, LSP)
+- 정의: 부모 클래스와 자식 클래스 사이에는 치환 가능성이 있어야 한다.
+- 예시: 'Bird' 클래스의 객체를 'Penguin' 클래스의 객체로 치환할 수 있어야 한다.
+```java
+public class Bird {
+    public void fly() {
+        // 일반적인 비행 로직
+    }
+}
+
+public class Penguin extends Bird {
+    @Override
+    public void fly() {
+        // 펭귄은 날지 못하므로 재정의
+        throw new UnsupportedOperationException();
+    }
+}
+```
+- 사용 이유: 서브타입을 잘못 사용하여 발생할 수 있는 문제를 미연에 방지한다.
+
+4. 인터페이스 분리 원칙(Interface Segregation Principle, ISP)
+- 정의: 클라이언트는 자신이 사용하지 않는 인터페이스에 의존하면 안 된다.
+- 예시: 'Printer' 인터페이스에서 복사, 스캔, 인쇄 기능을 모두 가지기보다는 각각 분리한다.
+```java
+public interface Printer {
+    void print();
+}
+
+public interface Scanner {
+    void scan();
+}
+
+public class MultiFunctionPrinter implements Printer, Scanner {
+    public void print() {
+        // 인쇄 로직
+    }
+
+    public void scan() {
+        // 스캔 로직
+    }
+}
+```
+- 사용 이유: 필요한 기능만을 가진 인터페이스를 구현함으로써, 불필요한 의존성을 줄인다.
+
+5. 의존 역전 원칙(Dependency Inversion Principle, DIP)
+- 정의: 고수준 모듈은 저수준 모듈에 의존하면 안 되며, 둘 다 추상화에 의존해야 한다.
+- 예시: 'ReportGenerator' 클래스는 'MySQLDatabase' 클래스보다는 'Database' 인터페이스에 의존한다.
+```java
+public interface Database {
+    void save();
+}
+
+public class MySQLDatabase implements Database {
+    public void save() {
+        // MySQL 저장 로직
+    }
+}
+
+public class ReportGenerator {
+    private Database database;
+
+    public ReportGenerator(Database database) {
+        this.database = database;
+    }
+
+    public void generateReport() {
+        database.save();
+    }
+}
+```
+- 사용 이유: 모듈 간의 결합도를 낮춰 유지 보수와 테스트가 쉬워진다.
