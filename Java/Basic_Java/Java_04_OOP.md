@@ -336,17 +336,27 @@ public class Main {
 ```java
 public class Bird {
     public void fly() {
-        // 일반적인 비행 로직
+        System.out.println("Bird is flying");
     }
 }
 
 public class Penguin extends Bird {
     @Override
-    public void fly() {
-        // 펭귄은 날지 못하므로 재정의
-        throw new UnsupportedOperationException();
+    public void fly() { // 펭귄은 날지 못하므로 재정의(Override)
+        throw new UnsupportedOperationException("Penguins can't fly");
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        Bird bird1 = new Bird();
+        Bird bird2 = new Penguin();
+
+        bird1.fly(); // 일반적인 비행 로직 실행
+        bird2.fly(); // UnsupportedOperationException 발생
+    }
+}
+
 ```
 - 사용 이유: 서브타입을 잘못 사용하여 발생할 수 있는 문제를 미연에 방지한다.
 
@@ -384,7 +394,7 @@ public interface Database {
 
 public class MySQLDatabase implements Database {
     public void save() {
-        // MySQL 저장 로직
+        System.out.println("Data saved in MySQL database");
     }
 }
 
@@ -396,7 +406,17 @@ public class ReportGenerator {
     }
 
     public void generateReport() {
+        System.out.println("Generating report...");
         database.save();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Database mySQLDatabase = new MySQLDatabase();
+        ReportGenerator reportGenerator = new ReportGenerator(mySQLDatabase);
+
+        reportGenerator.generateReport(); // "Generating report..." 그리고 "Data saved in MySQL database" 출력
     }
 }
 ```

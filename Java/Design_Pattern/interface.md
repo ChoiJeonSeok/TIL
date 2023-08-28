@@ -84,5 +84,4 @@ app2.saveData();  // MongoDB에 저장
     db.save();  // 가능
     db.update();  // 가능
     db.connect();  // 가능
-
     ```
