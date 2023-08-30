@@ -178,21 +178,32 @@ public class CustomExceptionExample {
 ## 3. Java 표준 라이브러리의 예외 클래스
 
 ### 3.1 `java.lang.Exception` 클래스
-- `java.lang.Exception` 클래스는 모든 검사 예외의 수퍼클래스이다. 
+- `java.lang.Exception` 클래스는 Java에서 모든 검사 예외(checked exceptions)의 부모 클래스.
+- 검사 예외란 컴파일러가 명시적으로 처리를 요구하는 예외. 
 - 이 클래스를 상속받아 사용자 정의 예외를 만들 수 있다.
 
+#### 주요 메서드
+- `getMessage()`: 예외에 대한 상세 메시지를 반환한다.
+- `printStackTrace()`: 예외 발생 당시의 스택 트레이스를 출력한다.
+
 ### 3.2 `java.lang.RuntimeException` 클래스
-- `RuntimeException` 클래스는 모든 비검사 예외의 수퍼클래스다. 
+- `RuntimeException` 클래스는 모든 비검사 예외(unchecked exceptions)의 부모 클래스.
+- 비검사 예외는 명시적인 예외 처리를 강제하지 않는다.
 - 이 클래스를 상속받아 사용자 정의 런타임 예외를 만들 수 있다.
 
+#### 주요 메서드
+- `getMessage()`, `printStackTrace()` 등 `Exception` 클래스와 동일한 메서드를 가진다.
+
 ### 3.3 주요 예외 클래스들
-- `NullPointerException`
-- `IndexOutOfBoundsException`
-- `NumberFormatException`
-- `ArithmeticException`
+- `NullPointerException`: 객체 참조가 `null`인 상태에서 객체의 메서드를 호출할 때 발생한다.
+- `IndexOutOfBoundsException`: 배열이나 리스트에서 유효하지 않은 인덱스를 사용할 때 발생한다.
+- `NumberFormatException`: 숫자 형식이 아닌 문자열을 숫자로 변환하려고 할 때 발생한다.
+- `ArithmeticException`: 수학적으로 불가능한 연산을 수행할 때 발생한다.
 
 ### 3.4 예제
-표준 라이브러리의 예외 클래스를 활용한 예제.
+- `NullPointerException`을 처리하는 방법. 
+- `String str = null`에서 `str`은 `null`이므로 `str.length()`는 `NullPointerException`을 발생시킨다.
+
 
 ```java
 public class StandardExceptionExample {
@@ -201,8 +212,10 @@ public class StandardExceptionExample {
         try {
             System.out.println(str.length());  // NullPointerException 발생
         } catch (NullPointerException e) {
-            System.out.println("Null 값을 참조하고 있습니다: " + e);
+            System.out.println("Null 값을 참조하고 있습니다: " + e.getMessage());
         }
     }
 }
 ```
+- `catch` 블록이 `NullPointerException`을 잡아 "Nuill 값을 참조하고 있습니다: null"이라는 메시지를 출력한다.
+- `e.getMessage()`는 `null`을 반환하는데, 이는 `NullPointerException`이 생성자에 메시지를 전달받지 않았기 때문이다. 
