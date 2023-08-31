@@ -217,5 +217,5 @@ public class StandardExceptionExample {
     }
 }
 ```
-- `catch` 블록이 `NullPointerException`을 잡아 "Nuill 값을 참조하고 있습니다: null"이라는 메시지를 출력한다.
+- `catch` 블록이 `NullPointerException`을 잡아 "Nuill 값을 참조하고 있다: null"이라는 메시지를 출력한다.
 - `e.getMessage()`는 `null`을 반환하는데, 이는 `NullPointerException`이 생성자에 메시지를 전달받지 않았기 때문이다. 
