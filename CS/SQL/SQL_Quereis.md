@@ -48,14 +48,14 @@
 
 ### IN, EXISTS, ALL, ANY
 - **정의**: `IN`은 주어진 값 목록 중 하나와 일치하는지, `EXISTS`는 서브쿼리의 결과가 존재하는지, `ALL`은 모든 조건을 만족하는지, `ANY`는 어느 하나의 조건을 만족하는지를 확인한다.
-- **예시**
+- **예시**: `tableB`의 `id` 값과 `tableA`의 `id`값과 일치하는 모든 값 출력.
     ```sql
     SELECT * FROM tableA WHERE id IN (SELECT id FROM tableB);
     ```
 
 ### 스칼라 서브쿼리
 - **정의**: 단일 값을 반환하는 서브쿼리.
-- **예시**
+- **예시**: `tableA`의 각 행에 대하여 `tableB`에서 계산한 평균 나이(`AVG(age)`)를 `ave_age`라는 열로 추가하여 출력.
     ```sql
     SELECT name, (SELECT AVG(age) FROM tableB) AS avg_age FROM tableA;
     ```
@@ -64,14 +64,14 @@
 
 ### COUNT, SUM, AVG 등
 - **정의**: `COUNT`는 행의 수를 세고, `SUM`은 값을 합산하며, `AVG`는 평균 값을 계산한다.
-- **예시**
+- **예시**: `tableA`에서 모든 행의 수를 count 하고 `column1`의 합계와 `column2`의 평균을 계산.
     ```sql
     SELECT COUNT(*), SUM(column1), AVG(column2) FROM tableA;
     ```
 
 ### HAVING 절
 - **정의**: `GROUP BY`로 묶인 결과에 추가적인 조건을 적용한다.
-- **예시**
+- **예시**: `tableA`에서 `column1`을 기준으로 그룹을 묶고, 그룹 내 행의 수가 1보다 큰 경우만 출력
     ```sql
     SELECT column1, COUNT(*) 
     FROM tableA 
@@ -83,7 +83,7 @@
 
 ### RANK(), DENSE_RANK(), NTILE()
 - **정의**: `RANK()`는 순위를 계산하고, `DENSE_RANK()`는 중복을 허용하지 않는 순위를 계산하며, `NTILE()`은 결과를 분할한다.
-- **예시**
+- **예시**: `tableA`에서 `column1`을 기준으로 순위를 매기고 (`RANK()`), 중복을 허용하지 않는 순위를 매기며 (`DENSE_RANK()`), 결과를 4개의 타일로 분할.
     ```sql
     SELECT RANK() OVER (ORDER BY column1), DENSE_RANK() OVER (ORDER BY column1), NTILE(4) OVER (ORDER BY column1) 
     FROM tableA;
@@ -91,7 +91,7 @@
 
 ### PARTITION BY, ORDER BY
 - **정의**: `PARTITION BY`는 결과를 특정 기준으로 분할하고, `ORDER BY`는 결과를 정렬한다.
-- **예시**
+- **예시**: `tableA`에서 `column1`을 기준으로 결과를 분할한 뒤, `column2`를 기준으로 순위를 매긴다.
     ```sql
     SELECT RANK() OVER (PARTITION BY column1 ORDER BY column2) 
     FROM tableA;
