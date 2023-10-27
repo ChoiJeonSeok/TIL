@@ -47,6 +47,7 @@ DROP TABLE employees;
 
 ### 인덱스 생성과 사용
 - 데이터의 검색 속도를 향상시키기 위한 자료 구조.
+- B-Tree, Hash, Bitmap 등이 있으며, 범위 검색이나 특정 값 검색처럼 사용 목적에 따라 적합한 자료 구조가 달라질 수 있음.
 - 예시: `employees` 테이블의 `name` 컬럼에 인덱스를 생성하여 검색 성능을 향상시킨다.
 ```sql
 CREATE INDEX idx_employee_name ON employees (name);
@@ -56,9 +57,11 @@ CREATE INDEX idx_employee_name ON employees (name);
 - 인덱스의 성능을 최적화한다. 예를 들어, 불필요한 인덱스를 제거하거나, 컬럼의 순서를 변경할 수 있다.
 
 ## 3. 권한 관리
+- 데이터의 무결성과 보안을 위해 무분별한 접근과 변경을 허용하지 않음. 
 
 ### GRANT
 - 사용자에게 특정 작업을 수행할 수 있는 권한을 부여한다.
+- 각 사용자의 역할과 책임이 다르므로 세분화된 권한 설정이 필요하다.
 - 예시: `some_user` 사용자에게 `employees` 테이블에 데이터를 조회하고 삽입할 권한을 부여한다.
 ```sql
 GRANT SELECT, INSERT ON employees TO some_user;
@@ -66,6 +69,8 @@ GRANT SELECT, INSERT ON employees TO some_user;
 
 ### REVOKE
 - 사용자로부터 특정 권한을 빼앗는다.
+- 사용자의 역할이 변경되거나, 특정 데이터에 더이상 접근할 필요가 없을 때 권한을 회수할 필요가 있다.
+- 예시로 어떤 프로젝트가 종료되면 해당 프로젝트에 대한 데이터 접근 권한을 회수하는 경우를 들 수 있다.
 - 예시: `some_user` 사용자로부터 `employees` 테이블에 데이터를 조회하고 삽입할 권한을 회수한다.
 ```sql
 REVOKE SELECT, INSERT ON employees FROM some_user;
@@ -73,3 +78,5 @@ REVOKE SELECT, INSERT ON employees FROM some_user;
 
 ### 사용자 관리
 - 데이터베이스에 접근할 수 있는 사용자를 관리한다. 사용자를 생성, 삭제, 권한을 할당하는 등의 작업을 수행한다.
+- 보안 및 권한 설정을 체계적으로 관리할 수 있게 한다.
+- 로깅을 통해 데이터에 대한 접근과 수정을 추적할 수 있다.
