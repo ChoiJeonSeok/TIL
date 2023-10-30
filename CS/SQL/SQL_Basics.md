@@ -13,14 +13,31 @@
 ## 2. 데이터 타입과 스키마
 
 ### 기본 데이터 타입
-- INTEGER: 정수형 데이터
-- FLOAT: 부동소수점 데이터
-- TEXT, VARCHAR: 문자열 데이터
-- DATE, TIME: 날짜와 시간
+- INTEGER: 정수형 데이터. (나이, 학년 등)
+- FLOAT: 부동소수점 데이터. (점수, 가격 정보 등)
+- TEXT, VARCHAR: 문자열 데이터. (VARCHAR은 길이 제한이 있는 문자열, TEXT는 길이 제한 없음)
+- DATE, TIME, TIMESTAMP: 날짜와 시간. (DATE는 날짜만, TIME은 시간만, TIMESTAMP는 날짜와 시간)
+- BOOLEAN: 참/거짓 값
+- CHAR: 고정 길이의 문자열
+- BLOB: 이진 데이터. (이미지나 파일을 저장할 때)
 
 ### 테이블 스키마 설계
-- 테이블을 생성할 때 각 열의 데이터 타입과 제약 조건을 명시한다.
+- 테이블을 생성할 때 각 열의 데이터 타입과 제약 조건을 명시한다. 
+- 제약 조건은 데이터의 무결성을 보장하기 위해 사용된다.<br><br>
+- PRIMARY KEY: 유일한 값을 가지며, NULL을 허용하지 않는 필드
+- FOREIGN KEY: 다른 테이블의 PRIMARY KEY를 참조하는 필드
+- UNIQUE: 유일한 값을 가질 수 있는 필드
+- NOT NULL: NULL 값을 허용하지 않는 필드
+- DEFAULT: 기본값을 설정하는 필드
 - 예: `CREATE TABLE Employees (ID INTEGER PRIMARY KEY, Name TEXT);`
+- 예: 
+```sql
+CREATE TABLE Employees (
+    ID INTEGER PRIMARY KEY,
+    Name TEXT NOT NULL,
+    Salary FLOAT DEFAULT 0.0
+);
+```
 
 ## 3. 기본 쿼리 작성
 
