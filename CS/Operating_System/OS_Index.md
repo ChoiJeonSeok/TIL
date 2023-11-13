@@ -1,19 +1,19 @@
 
 # 운영체제 목차:
 
-1. **운영체제 개요**
+1. [**운영체제 개요**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_overview.md)
     - 정의
     - 운영체제의 역할 및 기능
     - 운영체제의 분류
 
-2. **프로세스 관리**
+2. [**프로세스 관리**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Process_Management.md)
     - 프로세스의 정의 및 특성
     - 프로세스의 상태 및 상태 전이
     - 스케줄링
     - 동기화 문제 및 해결방법
     - 교착상태와 그 해결 전략
 
-3. **메모리 관리**
+3. [**메모리 관리**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Memory_Management.md)
     - 메모리 계층 구조
     - 연속 메모리 할당 및 분할
     - 페이징 및 세그먼테이션

@@ -1,15 +1,15 @@
-# OLAP 개요
+# [OLAP 개요](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/OLAP/OLAP_Knowledge/OLAP_Overview.md)
 1. OLAP의 정의와 목적
 2. OLAP의 역사와 발전
 3. OLAP의 기본 개념과 용어
 
-# 다차원 데이터 모델링
+# [다차원 데이터 모델링](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/OLAP/OLAP_Knowledge/OLAP_Multidimensional%20Data%20Modeling.md)
 1. 다차원 데이터 모델의 개념
 2. 차원(Dimension)과 측정값(Measure)의 이해
 3. 다차원 스키마 설계 방법
 4. 계층 구조(Hierarchy)의 활용
 
-# OLAP 질의와 연산
+# [OLAP 질의와 연산](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/OLAP/OLAP_Knowledge/OLAP_Queries_and_Operations.md)
 1. Slice, Dice, Drill-down, Roll-up 연산의 개념과 활용
 2. 필터링과 그룹화에 대한 이해
 3. OLAP 질의 언어와 OLAP 쿼리 작성 방법
