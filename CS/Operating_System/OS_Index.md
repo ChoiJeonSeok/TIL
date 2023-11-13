@@ -1,7 +1,7 @@
 
 # 운영체제 목차:
 
-1. [**운영체제 개요**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_overview.md)
+1. [**운영체제 개요**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Overview.md)
     - 정의
     - 운영체제의 역할 및 기능
     - 운영체제의 분류
