@@ -19,14 +19,14 @@
     - 페이징 및 세그먼테이션
     - 가상 메모리
 
-4. **파일 시스템**
+4. [**파일 시스템**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_File_System.md)
     - 파일의 정의 및 속성
     - 파일 연산 및 관리
     - 디렉터리 구조
     - 디스크 스케줄링 알고리즘
     - 분산 파일 시스템
 
-5. **I/O 시스템**
+5. [**I/O 시스템**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_IO_System.md)
     - I/O 디바이스의 특성
     - 디바이스 드라이버와 I/O 인터럽트
     - 직접 메모리 접근(DMA)
