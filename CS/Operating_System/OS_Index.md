@@ -31,14 +31,14 @@
     - 디바이스 드라이버와 I/O 인터럽트
     - 직접 메모리 접근(DMA)
 
-6. **운영체제 설계 및 구현**
+6. [**운영체제 설계 및 구현**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Design_Implementation.md)
     - 모노리식 커널 vs 마이크로 커널
     - 하이브리드 시스템
     - 운영체제의 성능 측정 및 벤치마킹
     - 시스템 호출
     - 운영체제의 성능 최적화
 
-7. **보안 및 보호**
+7. [**보안 및 보호**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Security_and_Protection.md)
     - 권한 관리 및 액세스 제어
     - 암호화 및 인증
     - 보안 위협 및 방어 전략
