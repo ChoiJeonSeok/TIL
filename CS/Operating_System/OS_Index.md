@@ -43,7 +43,7 @@
     - 암호화 및 인증
     - 보안 위협 및 방어 전략
 
-8. **분산 시스템 및 클라우드 컴퓨팅**
+8. [**분산 시스템 및 클라우드 컴퓨팅**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Distributed_Systems_and_Cloud_Computing.md)
     - 분산 시스템의 정의 및 특징
     - 클라우드 서비스 모델 (IaaS, PaaS, SaaS)
     - 네트워킹과 운영체제
