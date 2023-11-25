@@ -15,12 +15,11 @@
 - **정의**: 기본적인 컴퓨팅 리소스(서버, 스토리지, 네트워크)를 인터넷을 통해 제공하는 서비스.
 - **사용 예**: Amazon Web Services (AWS), Microsoft Azure
 
-### **PaaS (Platform as a Service)**
+### [**PaaS (Platform as a Service)**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/PaaS.md)
 - **정의**: 애플리케이션 개발 및 배포에 필요한 플랫폼을 제공하는 서비스.
 - **사용 예**: Google App Engine, 
   - Heroku
     - 클라우드 기반의 플랫폼, 웹 어플리케이션의 배포에 사용된다.
-    - [PaaS(Platform as a Service)](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Security_and_Protection.md) 모델을 따른다.
 
 ### **SaaS (Software as a Service)**
 - **정의**: 인터넷을 통해 소프트웨어 애플리케이션을 제공하는 서비스.
