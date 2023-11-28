@@ -48,7 +48,7 @@
     - 클라우드 서비스 모델 (IaaS, PaaS, SaaS)
     - 네트워킹과 운영체제
 
-9. **컨테이너와 가상화**
+9. [**컨테이너와 가상화**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_Containerization_Virtualization.md)
     - 하이퍼바이저의 정의 및 종류
     - 컨테이너화 vs 가상화
     - 도커와 쿠버네티스 같은 컨테이너 플랫폼의 소개 및 특징
