@@ -53,7 +53,7 @@
     - 컨테이너화 vs 가상화
     - 도커와 쿠버네티스 같은 컨테이너 플랫폼의 소개 및 특징
 
-10. **현대 운영체제의 특징 및 동향**
+10. [**현대 운영체제의 특징 및 동향**](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Operating_System/OS_Knowledge/OS_ModernTrends.md)
     - 분산 운영체제
     - 실시간 운영체제
     - 모바일 운영체제
