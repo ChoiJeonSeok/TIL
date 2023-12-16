@@ -18,12 +18,22 @@
 - **서비스 탐색 및 사용**: 서비스 카테고리 이해, 필요한 서비스 검색 및 액세스.
 - **기본 설정**: 보안 설정, 알림, 결제 대시보드.
 
-## 1.3 주요 AWS 서비스 소개
-- **컴퓨팅**: EC2 (Elastic Compute Cloud), Lambda (서버리스 컴퓨팅).
-- **스토리지**: S3 (Simple Storage Service), EBS (Elastic Block Store).
-- **데이터베이스**: RDS (Relational Database Service), DynamoDB.
-- **네트워킹**: VPC (Virtual Private Cloud), Route 53 (DNS 서비스).
-- **분석**: Redshift (데이터 웨어하우징), Kinesis (스트림 데이터 처리).
+## 1.3 주요 AWS 서비스 소개(2023-12-16 기준)
+### **컴퓨팅**
+- EC2 (Elastic Compute Cloud): 클라우드에서 실행하는 가상 서버. CPU, 메모리, 스토리지를 필요에 맞게 선택 가능.
+- Lambda (서버리스 컴퓨팅): 서버 관리 없이 코드를 실행할 수 있음. 코드 실행에 필요한 컴퓨팅 리소스를 AWS가 자동으로 관리, 사용한 시간 및 리소스에 대해서만 비용 지불.
+### **스토리지**
+- S3 (Simple Storage Service): 객체 스토리지 서비스. 웹사이트의 정적 파일, 백업, 아카이빙, 빅데이터 분석용 데이터 등 다양한 형태의 데이터 저장 및 관리
+- EBS (Elastic Block Store): EC2 인스턴스에 사용되는 블록 스토리지 서비스. 지속성이 요구되는 데이터베이스나 파일 시스템 등의 애플리케이션에 사용.
+### **데이터베이스**
+- RDS (Relational Database Service): 관계형 데이터베이스 서비스. MySQL, PostgreSQL, Oracle 등의 데이터베이스 엔진 지원. 백업, 스케일링, 패치 관리 자동 수행.
+- DynamoDB: 완전 관리형 NoSQL 데이터베이스 서비스. 모바일, 웹, 게임, IoT 등에 사용.
+### **네트워킹**
+- VPC (Virtual Private Cloud): 사용자가 정의한 가상 네트워크에서 AWS 리소스를 실행할 수 있게 해주는 서비스. 보안 및 네트워크 구성을 사용자가 제어 가능.
+- Route 53 (DNS 서비스): 확장 가능한 도메인 네임 시스템(DNS) 서비스. 도메인 이름을 IP 주소로 변환하며, 높은 가용성과 신뢰성있는 라우팅 제공.
+### **분석**
+- Redshift (데이터 웨어하우징): 대규모 데이터 세트를 저장하고 분석하기 위한 웨어하우스 서비스. 쿼리 및 데이터 분석 작업에 최적화됨.
+- Kinesis (스트림 데이터 처리): 실시간으로 대량의 스트리밍 데이터를 수집, 처리, 분석할 수 있는 서비스. 실시간 대시보드, 알람, 다른 데이터베이스 및 애플리케이션과의 통합을 위해 사용된다.
 
 ## 1.4 AWS 보안 및 IAM (Identity and Access Management)
 - **IAM 개요**: 사용자, 그룹, 역할 및 정책 관리.
