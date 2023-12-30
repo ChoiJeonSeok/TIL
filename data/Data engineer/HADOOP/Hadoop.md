@@ -17,6 +17,7 @@ Hadoop은 대규모 데이터 세트를 처리하고 분석하기 위한 오픈 
 ## Hadoop의 핵심 구성 요소
  - HDFS
  - MapReduce
+ - YARN
 
 ### HDFS (Hadoop Distributed File System)
 - HDFS는 대규모 데이터 세트를 저장하기 위한 분산 파일 시스템이다.
@@ -30,7 +31,12 @@ Hadoop은 대규모 데이터 세트를 처리하고 분석하기 위한 오픈 
 - Reduce 단계에서는 중간 결과를 조합하여 최종 결과를 생성한다. 각 Reduce 작업은 특정 키에 대해 실행되며, 결과는 병렬로 처리된다.
 - 예를 들어, Word Count 작업에서는 Map 단계에서 문서를 단어로 분할하고, 각 단어를 (단어, 1)과 같은 키-값 쌍으로 변환한다. Reduce 단계에서는 같은 단어를 가진 키-값 쌍을 합산하여 단어의 빈도를 계산한다.
 
-
+### YARN(Yet Another Resource Negotiator)
+- 자원 관리와 작업 스케줄링/모니터링 기능을 별도의 데몬으로 분리하는 것을 목표로 함. ResourceManager(RM)과 NodeManager라는 두 주요 요소로 구성되어 있다. 각 애플리케이션별 ApplicationMaster(AM)가 있다.
+- ResourceManager와 NodeManager는 데이터 계산 프레임워크를 형성한다. RM은 시스템 내 모든 애플리케이션 간의 자원을 중재하는 최종 권한을 가진다. NodeManager는 각 머신에서 실행되며 컨테이너 관리, 리소스 사용량 모니터링 및 ResourceManager에게 이를 보고한다.
+- ApplicationMaster은 프레임워크별 라이브러리로, ResourceManager에서 리소스를 협상하고 NodeManager와 협력하여 작업을 실행하고 모니터링하는 역할을 한다.
+- RM에는 Scheduler와 ApplicationsManager가 있다. Scheduler는 애플리케이션에 리소스를 할당하는 역할을 하며, ApplicationsManager는 작업 제출을 수락하고, ApplicationMaster의 첫 번째 컨테이너를 협상하며, 실패 시 ApplicationMaster 컨테이너를 재시작하는 서비스를 제공한다.
+- 리소스 예약 및 Federation 기능이 있다. 여러 YARN 서브 클러스터를 하나의 큰 클러스터로 묶을 수 있다.확장성을 통해 대규모 작업을 실행할 수 있다.
 
 <br>
 
