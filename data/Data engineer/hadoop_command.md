@@ -31,3 +31,24 @@
 
 ### 파일 내용 보기
 - `hdfs dfs -cat FILE [FILE ...]`: 파일의 내용을 나타낸다.
+
+
+# 하둡(Hadoop) 파일시스템 (HDFS) 관리자 명령어
+- Hadoop HDFS 관리자 명령어는 클러스터의 상태를 관리하고, 시스템 설정을 조정하며, 시스템 관리와 관련된 고급 작업을 수행하는 데 사용된다.
+
+### 클러스터 관리 및 모니터링
+- `hdfs dfsadmin -report`: 클러스터의 기본 통계 및 상태를 보고한다.
+- `hdfs dfsadmin -safemode enter|leave`: 클러스터의 안전 모드를 수동으로 활성화하거나 비활성화한다.
+- `hdfs dfsadmin -refreshNodes`: Namenode에 데이터 노드의 집합을 업데이트한다.
+
+### 파일 시스템 체크 및 복구
+- `hdfs fsck [path] [option]`: 파일 시스템의 건강 상태를 진단하고, 누락된 파일이나 블록을 찾는다.
+
+### 시스템 설정 및 구성
+- `hdfs getconf [option]`: Hadoop 클러스터의 구성 정보를 가져온다.
+
+### 스냅샷 및 백업 관리
+- `hdfs snapshot [option]`: HDFS 내의 스냅샷을 관리한다.
+
+### 주의
+- 관리자 명령어를 사용하기 위해서는 관리자 권한이 필요하며, 클러스터 전체 성능과 안정성에 큰 영향을 줄 수 있다.
