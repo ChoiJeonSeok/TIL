@@ -4,10 +4,12 @@
 - 영화 DVD 대여점의 데이터를 모델링한 MySQL의 공식 샘플 데이터이다. 이 데이터로 SQL을 연습하려고 한다.
 
 1. **MySQL 설치 확인**: MySQL이 설치되어 있지 않다면, [MySQL 공식 웹사이트](https://www.mysql.com/)를 통해 설치한다.
+- visual studio code를 사용하고 있으므로 MySQL Shell for VS Code Extension을 설치하였다.
 
 2. **Sakila Database 다운로드**:  [MySQL 사이트](https://dev.mysql.com/doc/index-other.html)에서 Sakila Database의 `.zip` 파일을 다운로드한다.
 
-3. **압축 해제**: 다운로드한 `.zip` 파일을 압축 해제한다. 압축 해제하면 `sakila-schema.sql`과 `sakila-data.sql` 두 개의 SQL 파일이 포함되어 있을 것.
+3. **압축 해제**: 다운로드한 `.zip` 파일을 압축 해제한다. 압축 해제하면 `sakila-schema.sql`과 `sakila-data.sql` 두 개의 SQL 파일이 포함되어 있을 것이다.
+![image](https://github.com/ChoiJeonSeok/TIL/assets/82266289/8fd59fbe-0203-4c15-8a69-37308b96420d)
 
 4. **MySQL에 접속**: 커맨드 라인 인터페이스(Command Line Interface, CLI)나 MySQL Workbench와 같은 GUI 툴을 사용하여 MySQL 서버에 접속한다.
 
