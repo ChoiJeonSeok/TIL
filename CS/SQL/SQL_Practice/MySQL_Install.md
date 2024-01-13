@@ -36,3 +36,5 @@
 - Shell 선택 창에 MySQL Shell for VS Code가 생성된 것을 볼 수 있다.
 - Visual Studio Code 좌측 데이터베이스 탭으로![image](https://github.com/ChoiJeonSeok/TIL/assets/82266289/20211250-43cf-44fa-88a8-cf3c1cfed745) 이동하여 Create Connection을 클릭한다.
 - 호스트는 `127.0.0.1` 또는 `localhost`, 포트는 `3306`, 사용자 이름은 `root`, 비밀번호는 4단계에서 설정한 비밀번호를 사용한다.
+![image](https://github.com/ChoiJeonSeok/TIL/assets/82266289/9fb8bb80-ce8c-403c-9d93-290b4f875f6a)
+- 성공하였다. 만약 처음부터 다시 하고 싶다면, data 폴더를 삭제한 후 MySQL 서버를 초기화한다: `mysqld --initialize`. 이후 임시 비밀번호를 다시 찾아서 이 글 위에 서술된 과정을 진행하면 된다.
