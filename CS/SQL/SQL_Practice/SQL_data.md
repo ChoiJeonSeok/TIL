@@ -1,4 +1,4 @@
-[SQL Sample Data](https://dev.mysql.com/doc/index-other.html)
+### [SQL Sample Data](https://dev.mysql.com/doc/index-other.html)
 
 # Sakila Database
 - 영화 DVD 대여점의 데이터를 모델링한 MySQL의 공식 샘플 데이터이다. 이 데이터로 SQL을 연습하려고 한다.
@@ -47,8 +47,6 @@
    - MySQL Workbench에서 열어 데이터베이스의 시각적 구조를 볼 수 있으며, 데이터베이스 설계 및 수정에 사용할 수 있다.
    - MySQL Workbench를 사용하여 해당 스키마를 기반으로 실제 데이터베이스 테이블을 생성하거나 수정할 수 있다.
 
-   물론입니다. Sakila 데이터베이스의 데이터 조회 및 검증 과정을 자세한 명령어와 함께 정리해드리겠습니다:
-
 ### 데이터 조회 및 검증
 
 1. **데이터베이스 선택**:
@@ -88,5 +86,5 @@
     SELECT * FROM customer LIMIT 10;
     SELECT * FROM rental LIMIT 10;
     ```
-    - 이렇게 하면 `film`, `customer`, `rental` 각 테이블에서 처음 10개의 행만을 조회하게 된다. 데이터의 샘플을 확인하는 것이다.
+    - 이렇게 하면 `film`, `customer`, `rental` 각 테이블에서 처음 10개의 행만을 조회하게 된다. 데이터의 샘플을 확인할 수 있는 것이다.
     ![image](https://github.com/ChoiJeonSeok/TIL/assets/82266289/5362c257-9cbd-4fe8-9f15-99baf51778bc)
