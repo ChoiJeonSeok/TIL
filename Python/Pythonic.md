@@ -395,3 +395,29 @@ long_string = """아주 긴 문자열도
 def is_sorted(lst):
   return all(a <= b for a, b in zip(lst, lst[1:]))
 ```
+
+### 12. assert : 개발용 간이 테스트 시험지.
+- 조건이 참인지 확인하는 데 사용된다.
+- 개발 과정에서 오류를 빠르게 발견하고, 디버깅을 돕는데 사용된다.
+- 또한 코드를 작성함에 있어 그 작동 과정을 개발자가 정확하게 이해하고 있는지 스스로 점검하는 용도로도 사용될 수 있다. assert를 어디에 어떤 조건으로 작성해야 하는지 알아야 적절한 테스트가 가능하기 때문이다.
+- 조건이 거짓이면 'AssertionError'를 발생시키고 개발자가 정한 메시지와 함께 프로그램을 중단시킨다.
+리스트가 정렬되었는지 확인하는 함수에 `assert`를 추가하는 것은, 해당 함수가 올바른 결과를 반환하는지 검증하는 데 사용됩니다. `is_sorted` 함수를 기준으로 `assert`를 추가한다면, 특정한 리스트에 대해 함수가 `True` 또는 `False`를 올바르게 반환하는지 확인할 수 있습니다.
+
+```python
+def is_sorted(lst):
+    return all(a <= b for a, b in zip(lst, lst[1:]))
+
+# 정렬된 리스트 테스트
+sorted_list = [1, 2, 3, 4, 5]
+assert is_sorted(sorted_list), "리스트가 정렬되어 있어야 합니다."
+
+# 정렬되지 않은 리스트 테스트
+unsorted_list = [5, 3, 4, 1, 2]
+assert not is_sorted(unsorted_list), "리스트가 정렬되지 않았어야 합니다."
+```
+
+- 첫 번째 `assert`는 `sorted_list`가 정렬되었는지 확인한다. 만약 리스트가 정렬되어 있다면 `is_sorted` 함수는 `True`를 반환하고, 그렇지 않다면 `AssertionError`가 발생한다.
+
+- 두 번째 `assert`는 `unsorted_list`가 정렬되지 않았음을 확인한다. 이 리스트가 정렬되지 않았다면 `is_sorted` 함수는 `False`를 반환하고, `assert not` 구문은 성공한다. 그러나 만약 리스트가 실제로 정렬되어 있다면 `AssertionError`가 발생한다.
+
+- 이러한 방식으로 `assert`는 코드가 의도한 대로 작동하는지 검증하는 데 사용될 수 있다.
