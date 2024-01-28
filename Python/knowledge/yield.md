@@ -80,3 +80,33 @@ for value in fibonacci_generator(5):
 
 ### 커스텀 반복자 생성
 - 사용자 정의 반복자를 쉽게 만들 수 있으며, 복잡한 반복 로직을 캡슐화할 수 있다.
+
+## 제너레이터의 반복 종료와 관련된 추가 정보 제공
+- 제너레이터가 더 이상 생성할 값이 없을 때, 호출자에게 유용한 정보나 상태를 알려주기 위해 추가 정보를 제공하는 경우가 있다. 
+- 제너레이터의 반복이 정상적으로 완료되었는지, 아니면 특정 조건으로 인해 조기에 종료되었는지를 나타내는 데 사용된다.
+
+### yiled와 return을 함께 사용하는 경우
+- `yiled`는 제너레이터 함수에서 값을 순차적으로 생성하고 반환하는 데 사용된다.
+- `return`은 제너레이터의 반복이 종료될 때 추가적인 정보를 제공하는 데 사용된다. 
+  - `return`으로 반환된 값은 `StopIteration` 예외의 인자로 전달되어, 제너레이터 사용자가 이를 활용할 수 있다.
+
+```python
+def my_generator():
+    yield "Hello"
+    yield "World"
+    return "No more elements"
+
+gen = my_generator()
+print(next(gen))  # "Hello"
+print(next(gen))  # "World"
+try:
+    print(next(gen))
+except StopIteration as e:
+    print(e.value)  # "No more elements"
+```
+
+1. my_generator `함수는 두 개의` yield` 문을 사용해 "Hello"와 "World"를 차례로 생성한다. 
+2. 마지막 `return`은 "No more elements"라는 값을 `StopIteration` 예외와 함께 반환하며, 제너레이터의 종료를 나타낸다.
+3. 만약 `StopIteration` 예외를 처리하지 않는다면, 제너레이터가 반환할 값이 없을 때 예외가 발생하고 프로그램은 그 지점에서 중단된다.
+4. 프로그램의 비정상적 종료를 막기 위해 try except 문으로 예외를 처리하였다.
+5. `return`문에 지정된 값이 `StopIteration` 예외의 `value` 속성으로 설정되므로, `e.value`를 통해 `return`에 의해 반환된 값을 출력할 수 있다.
