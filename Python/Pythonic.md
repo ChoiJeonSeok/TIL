@@ -102,7 +102,9 @@ if 'banana' in my_list:
 
 **6. 문자열 포매팅**
 
-- Python은 새로운 포맷된 문자열을 생성하기 위해 C 스타일의 문자열 포매팅을 사용한다. 
+
+### C 스타일 문자열 포매팅
+- Python 초기에는 C 스타일의 문자열 포매팅을 사용했다.
 - "%" 연산자는 "튜플" (고정 크기의 리스트)에 포함된 `여러 변수`와 함께 포맷 문자열을 사용하여 포맷된다.
 - 이 포맷 문자열에는 "%s"와 "%d"와 같은 "인수 지정자"라는 특수 기호와 일반 텍스트가 포함된다.
 
@@ -124,6 +126,26 @@ print("Hello, %s! You are %d years old." % (name, age))
 ```
 여러 변수이므로 튜플로 묶는다.
 출력 : `Hello, John! You are 30 years old.`
+
+### **`str.format()` 메소드**
+- 이 방식은 Python 2.6 이상에서 사용할 수 있다. C 스타일보다 유연하고 사용하기 편하다.
+
+    ```python
+    name = "John"
+    age = 30
+    print("Hello, {}! You are {} years old.".format(name, age))
+    ```
+
+### **f-문자열 (Formatted String Literals)**
+- Python 3.6 이상에서 도입된 이 방식은 더욱 간결하고 직관적이다. 
+- 이는 변수와 표현식을 문자열 리터럴 내부에 직접 삽입할 수 있게 해준다.
+
+    ```python
+    name = "John"
+    age = 30
+    print(f"Hello, {name}! You are {age} years old.")
+    ```
+- 모두 사용한 결과, f-문자열 포맷팅이 가장 가독성있고 사용하기 편리했다.
 
 **7. `zip` 사용**
 
