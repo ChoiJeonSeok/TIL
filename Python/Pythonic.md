@@ -165,8 +165,59 @@ print(set(mapped))
 
 출력 : {('Lee', 3, 60), ('Kim', 4, 40), ('Choi', 1, 50), ('Cha', 2, 70)}
 
->만약 인덱스가 서로 다르다면?
->묶을 수 있는 데까지 순차대로 묶고 나머지는 무시된다.
+1. `zip()`은 주어진 시퀀스들 중 가장 짧은 길이에 맞춰 작동한다. 더 긴 시퀀스의 남은 요소들이 무시되는 것을 막기 위해 `itertools.zip_longest`를 사용하여 가장 긴 시퀀스에 맞추어 묶고 빈 값에는 기본값을 설정할 수 있다.
+
+```python
+import itertools
+
+names = ["Alice", "Bob", "Charlie", "Diana"]
+ages = [25, 30, 35]
+
+# zip_longest를 사용하여 더 긴 리스트에 맞춤
+# 여러 리스트가 있어도 하나의 fillvalue 값으로 기본값이 적용된다.
+zipped = list(itertools.zip_longest(names, ages, fillvalue="No Age"))
+
+for item in zipped:
+    print(item)
+
+# 코드 실행 시 결과
+('Alice', 25)
+('Bob', 30)
+('Charlie', 35)
+('Diana', 'No Age')    
+```
+
+
+
+2. 데이터 타입은 `zip` 객체이다. 반복 가능한 객체이며 리스트나 set, 딕셔너리와 같은 다른 데이터 타입으로 변환할 수 있다.
+3. 두 리스트를 `zip()`으로 결합하여 딕셔너리를 만들 수 있다. 하나의 리스트가 키, 다른 하나가 값이 된다.
+
+```python
+# 딕셔너리 생성
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+people = dict(zip(names, ages))
+print(people)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
+```
+
+4. `zip(*iterable)`을 사용하면 zip 된 리스트를 다시 원래의 리스트로 분리할 수 있다. 행렬의 전치와 같은 작업에 쓰인다.
+```python
+# 예시 1
+# 언패킹과 재구성
+matrix = [(1, 2, 3), (4, 5, 6)]
+transposed = zip(*matrix)
+print(list(transposed))  # [(1, 4), (2, 5), (3, 6)]
+
+
+# 예시 2
+pairs = [(1, 'a'), (2, 'b'), (3, 'c')]
+
+# 언패킹하여 원래 리스트로 복원
+numbers, letters = zip(*pairs)
+
+print("Numbers:", numbers)
+print("Letters:", letters)
+```
 
 **8. `*args`와 `**kwargs` 사용**
 
