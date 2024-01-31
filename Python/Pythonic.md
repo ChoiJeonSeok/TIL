@@ -288,8 +288,33 @@ b = 5
 **9. `getattr`와 `setattr` 사용**
 
 - 둘 다 Python의 내장 함수로, 객체의 속성에 동적으로 접근하는데 사용된다.
-- `getattr(object, name[, default])` : `object`라는 객체의 `name`이라는 속성의 값을 반환한다.<br>이때, `name`은 문자열로 주어져야 한다. 만약 해당 속성이 존재하지 않으면 `default`값을 반환한다.<br>getattr을 사용하면 속성 이름을 런타임에 결정하거나, 속성이 실제로 존재하는지 확인하지 않고도 속성에 접근할 수 있다.
-- `setattr(object, name, value)` : `getattr()`과 유사하지만 값을 얻는 대신 속성의 값을 설정한다.<br>`object`라는 객체의 `name`이라는 속성에 `value`값을 할당한다. <br>만약 해당 속성이 존재하지 않으면, 새로운 속성을 생성하고 `value`값을 할당한다.
+- 객체의 구조를 미리 알 수 없는 상황이나 복잡한 데이터 구조와 상호 작용할 때 특히 유용하다.
+
+### `getattr(object, name[, default])`
+
+- **용도**: 객체의 특정 속성 값을 가져온다.
+- **매개변수**:
+  - `object`: 속성 값을 조회할 객체
+  - `name`: 문자열 형태로 제공되는 속성 이름
+  - `default`: (선택적) 해당 속성이 객체에 없을 때 반환되는 기본값
+- **반환값**: 지정된 속성의 값이 반환된다. 속성이 존재하지 않고 `default` 값이 제공된 경우, `default` 값이 반환된다. `default` 값이 없을 경우 `AttributeError`가 발생한다.
+- **사용 사례**: `getattr`은 런타임에 속성 이름을 결정할 때. 예를 들어, 사용자 입력에 따라 다른 속성 값을 읽어야 할 때 사용할 수 있다.
+
+### `setattr(object, name, value)`
+
+- **용도**: 객체의 특정 속성에 값을 설정한다.
+- **매개변수**:
+  - `object`: 속성 값을 설정할 객체
+  - `name`: 문자열 형태로 제공되는 속성 이름
+  - `value`: 해당 속성에 할당할 값
+- **반환값**: `None`. 이 함수는 값을 설정하고 끝나며 별도의 반환값을 제공하지 않는다.
+- **사용 사례**: `setattr`은 객체의 속성 값을 동적으로 변경하거나 새로운 속성을 추가할 때 사용된다. 속성이 존재하지 않는 경우, 새로운 속성이 생성되고 제공된 값이 할당된다.
+
+### `.` 연산자와 `hasattr` 함수
+- `.` 연산자를 사용해 객체의 속성에 접근할 수도 있으나, 이 방법은 속성 이름이 런타임에 결정되는 동적 접근을 지원하지 않는다. 
+- 대신 `hasattr` 함수를 사용하면 객체가 특정 속성을 가지고 있는지 확인할 수 있으며, 이는 `True` 또는 `False`를 반환한다. 
+- 하지만 `hasattr`는 속성의 존재 여부만 확인할 수 있고, 해당 속성의 값을 검색하지는 못한다.
+
 
 예시: 일반적인 사용 예시
 
@@ -303,7 +328,7 @@ attr_name = "age"
 print('The age is:', getattr(person, attr_name))
 print('The age is:', person.age)
 attr_name = "name"
-print('The name is:', getattr(person, attr_name)
+print('The name is:', getattr(person, attr_name))
 ```
 
 출력:
