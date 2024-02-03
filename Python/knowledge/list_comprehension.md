@@ -122,6 +122,14 @@
     gmail_users = [email for email in emails if '@gmail.com' in email]
     print(gmail_users)  # 출력: ['user1@gmail.com', 'user3@gmail.com']
     ```
+- **예시**: 이메일 주소 리스트에서 도메인이 'gmail.com'인 이메일을 찾고, 도메인을 제외한 사용자 이름만 추출하기. 필터링과 변환을 한 줄로 할 수 있다.
+- **코드**:
+    ```python
+    emails = ['user1@gmail.com', 'user2@yahoo.com', 'user3@gmail.com', 'user4@hotmail.com']
+    gmail_usernames = [email.split('@')[0] for email in emails if '@gmail.com' in email]
+    print(gmail_usernames)  # 출력: ['user1', 'user3']
+    ```
+
 
 ### 5. 다차원 리스트 평탄화
 
@@ -147,4 +155,30 @@
     ]
     names = [student['name'] for student in students]
     print(names)  # 출력: ['Alice', 'Bob', 'Cindy']
+    ```
+
+### 7. 데이터 필터링과 변환-로그 데이터
+
+- **상황**: 대규모 데이터셋에서 특정 조건을 만족하는 데이터만 추출하고, 동시에 특정 형식으로 변환해야 할 때.
+- **예시**: 로그 데이터에서 특정 에러 코드를 포함하는 항목만 추출하고, 각 로그의 타임스탬프를 특정 형식으로 변환하는 경우
+- **코드**:
+    ```python
+    log_data = [
+    {"timestamp": "2024-01-01 10:00:00", "level": "error", "code": "E001"},
+    {"timestamp": "2024-01-01 10:05:00", "level": "info", "code": "I001"},
+    {"timestamp": "2024-01-01 10:10:00", "level": "error", "code": "E002"},
+    # ... 기타 로그 데이터 ...
+    ]
+
+    # 에러 로그만 추출하고, 타임스탬프를 ISO 형식으로 변환
+    error_logs = [
+        {"timestamp": log["timestamp"].replace(" ", "T"), "code": log["code"]}
+        for log in log_data if log["level"] == "error"
+    ]
+    print(error_logs)
+    # 출력:
+    # [
+    #   {"timestamp": "2024-01-01T10:00:00", "code": "E001"},
+    #   {"timestamp": "2024-01-01T10:10:00", "code": "E002"}
+    # ]
     ```
