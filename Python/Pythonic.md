@@ -1,7 +1,7 @@
 # Pythonic한 코드 작성 방법.
 Python의 특성을 최대한 활용하여 가독성이 좋고 효율적인 코드를 작성하자.
 
-## **1. 리스트 컴프리헨션**
+## [**1. 리스트 컴프리헨션**](https://github.com/ChoiJeonSeok/TIL/blob/master/Python/knowledge/list_comprehension.md)
 
 - 리스트 컴프리헨션은 기존 리스트를 기반으로 새로운 리스트를 생성하는 간결한 방법을 제공한다. 
 - Python에서는 for 루프를 사용하여 리스트를 생성하거나 리스트 컴프리헨션을 사용하여 생성할 수 있다.
@@ -30,7 +30,7 @@ print(squares)
 [x for x in range(10) if x % 2 == 0]
 ```
 
-## **2. 제너레이터**
+## [**2. 제너레이터**](https://github.com/ChoiJeonSeok/TIL/blob/master/Python/knowledge/yield.md)
 
 - 제너레이터는 리스트나 튜플과 같은 반복 가능한 객체이다. 
 - 리스트와 달리 임의의 인덱스로 인덱싱할 수 없지만, 여전히 for 루프를 통해 반복할 수 있다. 
@@ -494,7 +494,7 @@ def is_sorted(lst):
   return all(a <= b for a, b in zip(lst, lst[1:]))
 ```
 
-## 13. assert : 개발용 간이 테스트 시험지.
+## [13. assert : 개발용 간이 테스트 시험지.](https://github.com/ChoiJeonSeok/TIL/blob/master/Python/knowledge/assert.md)
 - 조건이 참인지 확인하는 데 사용된다.
 - 개발 과정에서 오류를 빠르게 발견하고, 디버깅을 돕는데 사용된다.
 - 또한 코드를 작성함에 있어 그 작동 과정을 개발자가 정확하게 이해하고 있는지 스스로 점검하는 용도로도 사용될 수 있다. assert를 어디에 어떤 조건으로 작성해야 하는지 알아야 적절한 테스트가 가능하기 때문이다.
@@ -523,7 +523,7 @@ assert not is_sorted(unsorted_list), "리스트가 정렬되지 않았어야 합
 - 이러한 방식으로 `assert`는 코드가 의도한 대로 작동하는지 검증하는 데 사용될 수 있다.
 
 
-## 14. 컨텍스트 매니저 (Context Managers): 리소스의 효율적 관리
+## [14. 컨텍스트 매니저 (Context Managers): 리소스의 효율적 관리](https://github.com/ChoiJeonSeok/TIL/blob/master/Python/knowledge/Context_Managers.md)
 - 컨텍스트 매니저 `with` 문은 파일, 네트워크 연결 등의 리소스를 안전하게 사용하고 해제하는 데 사용된다.
 - 리소스의 할당과 해제를 자동화하여 코드를 더 깔끔하고 안전하게 만든다.
 - 컨텍스트 매니저는 `__enter__`와 `__exit__` 두 가지 매직 메소드(magic methods)를 구현함으로써 정의된다. `__enter__` 메소드는 리소스가 생성되거나 할당될 때 호출되며, `__exit__` 메소드는 리소스가 더 이상 필요하지 않을 때 호출되어 리소스를 정리한다.
