@@ -635,3 +635,50 @@ update_or_add_attribute(my_dog, 'age', 4)
 ```
 
 - 특정 속성이 이미 존재하는지를 확인한 후, 존재하면 해당 속성의 값을 업데이트하고, 존재하지 않으면 새로운 속성을 추가한다.
+
+
+## 16. [map](https://github.com/ChoiJeonSeok/TIL/blob/master/etc/Coming_Soon.md)
+
+- `map` 함수는 주어진 함수를 반복 가능한(iterable) 데이터의 각 요소에 적용한다.
+- 이 함수는 데이터 변환, 데이터 전처리 등에서 유용하게 사용된다.
+- `map`은 함수와 반복 가능한 데이터를 인자로 받아, 각 요소에 함수를 적용한 결과를 map 객체로 반환한다.
+- 반환된 map 객체는 `list()`, `set()` 등을 사용하여 다른 형태로 변환할 수 있다.
+- `map`은 리스트 컴프리헨션과 유사한 기능을 수행하지만, 더 함수적인 접근을 제공한다.
+
+예를 들어, 모든 숫자의 제곱을 계산하는 경우 `map`을 사용할 수 있다:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+squared = map(lambda x: x ** 2, numbers)
+print(list(squared))  # 출력: [1, 4, 9, 16, 25]
+```
+
+- 여기서 `lambda x: x ** 2`는 각 숫자를 제곱하는 익명 함수이며, `numbers` 리스트의 각 요소에 적용된다.
+- `map` 함수는 이 연산의 결과를 map 객체로 반환한다.
+- `list(squared)`를 통해 결과를 리스트 형태로 변환하여 출력한다.
+
+### `map` 함수 여러 데이터 타입에 적용하기
+- 문자열 리스트와 같은 다른 데이터 타입에도 적용할 수 있다. 
+- 예를 들어, 모든 문자열을 대문자로 변환하는 경우:
+
+```python
+words = ["apple", "banana", "cherry"]
+uppercased = map(str.upper, words)
+print(list(uppercased))  # 출력: ['APPLE', 'BANANA', 'CHERRY']
+```
+
+- `str.upper` 함수는 문자열을 대문자로 변환한다.
+- 이 함수를 `words` 리스트의 각 요소에 적용하여, 모든 문자열을 대문자로 변환한 결과를 반환한다.
+
+### `map` 함수 lambda 함수와 사용하기
+- 예를 들어, 두 리스트의 요소를 더하는 경우:
+
+```python
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+result = map(lambda x, y: x + y, list1, list2)
+print(list(result))  # 출력: [5, 7, 9]
+```
+
+- 여기서 `lambda x, y: x + y`는 두 숫자를 더하는 함수이며, `list1`과 `list2`의 각 요소에 대해 적용된다.
+- `map`은 두 리스트의 각 요소를 순서대로 취하여 함수에 전달하고, 그 결과를 map 객체로 반환한다.
