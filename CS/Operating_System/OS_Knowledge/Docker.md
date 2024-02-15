@@ -55,3 +55,38 @@
 
 ### 참고 자료
 - [Docker 공식 문서](https://docs.docker.com/)
+
+<details><summary> Docker에서 .env 파일 사용하기</summary>
+
+- Docker에서 환경변수를 `.env` 파일을 사용하여 관리할 수 있다.
+
+### **`.env` 파일 사용**: 
+- Docker Compose와 함께 `.env` 파일을 사용하여 컨테이너에 환경 변수를 전달할 수 있다. 
+- `docker-compose.yml` 파일에서 이 변수들을 참조할 수 있다.
+  
+  예시 `docker-compose.yml`:
+  ```yaml
+  version: '3'
+  services:
+    webapp:
+      image: my-webapp
+      env_file:
+        - .env
+  # 이 구성에서 `webapp` 서비스는 `.env` 파일에서 정의된 환경 변수를 사용한다.
+  ```
+  
+
+- **Dockerfile 내에서 환경 변수 설정**: 
+  - `ENV` 지시어를 사용하여 Docker 이미지 빌드 시 환경 변수를 설정할 수 있다. 
+  - 하지만, 민감한 정보를 Dockerfile에 직접 포함시키는 것은 권장되지 않는다.
+
+### AWS와 Docker에서 `.env` 파일 사용시 보안 고려사항
+
+- **파일 보안**: `.env` 파일이나 환경 변수 파일은 소스 코드 저장소에 포함되어서는 안 된다. 이 파일은 로컬 개발 환경이나 안전한 위치에만 저장되어야 한다.
+
+- **AWS 보안 모범 사례 준수**: AWS에서는 민감한 데이터를 안전하게 관리하기 위한 여러 도구와 서비스를 제공한다. 예를 들어, AWS Secrets Manager 또는 AWS Parameter Store를 사용하여 민감한 정보를 안전하게 저장하고 관리할 수 있다.
+
+- **컨테이너 보안**: Docker 이미지 또는 컨테이너 내에 민감한 정보를 포함하지 않도록 주의해야 한다. 이러한 정보는 실행 시간에 환경 변수로 전달되어야 한다.
+
+- **네트워크 보안**: AWS 내에서 Docker 컨테이너를 실행할 때, 적절한 네트워크 보안 그룹과 정책을 설정하여 민감한 정보에 대한 접근을 제한한다.
+</details>
