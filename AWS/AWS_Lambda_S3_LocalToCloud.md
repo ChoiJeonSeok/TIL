@@ -5,8 +5,15 @@
 ### 1. AWS 서비스 선정 및 구성
 - **AWS Lambda**: 서버리스 컴퓨팅 서비스로, 날씨 데이터를 처리하고 보고서를 생성하는 Python 스크립트를 실행한다.
 - **Amazon S3**: 날씨 데이터 파일, 보고서, 로그 파일을 저장하는데 사용된다.
-- **Amazon SES (Simple Email Service)**: 이메일 전송에 사용된다. 서비스가 확장되기 전까지는 Gmail SMTP를 계속 사용할 예정이지만, SES를 사용한다고 가정하여 학습을 이어갈 것이다.
+  - AWS CLI로 S3 버킷으로 직접 파일 및 폴더를 업로드 할 수 있다. 
+  - ```aws s3 cp <local_folder_path> s3://<bucket_name>/<destination_folder>/ --recursive ```
+    - 업로드하고자 하는 로컬 폴더 경로, 대상 버킷 이름, S3 내 폴더 경로를 입력하고 폴더 내의 모든 파일과 하위 폴더를 업로드하게 recursive 옵션을 준다.
+    - 업로드 시 권한 설정이 가능하다. 다만, lambda 함수가 S3 버킷에서 파일을 읽고 쓰게 하려면 IAM을 통해 해당 S3 버킷에 대한 접근 권한을 제공하는 편이 더 관리가 쉽다.
+- **Amazon SES (Simple Email Service)**: 이메일 전송에 사용된다. 서비스가 확장되기 전까지는 Gmail SMTP를 계속 사용할 예정이지만, SES를 사용한다고 가정하여 학습을 이어갈 것이다. 
+  - [SMTP를 사용하면 일일 100개로 한정된다.](https://support.google.com/a/answer/166852?hl=ko)
+  - SMTP를 사용하지 않아도, Gmail 무료 계정은 일일 500개, Workspace로 확장해도 2000개가 한계이다.
 - **IAM (Identity and Access Management)**: Lambda, S3, SES에 대한 접근 및 실행 권한을 관리한다.
+- AWS Lambda에서 Python 코드를 실행, S3에 필요한 파일 업로드하여 관리하는 구조.
 
 ### 2. 코드 수정 및 최적화
 - **Lambda 호환성**: Lambda에서 실행될 수 있도록 코드를 수정해야 한다. 예를 들어, 파일 경로, 환경 변수 등을 Lambda 환경에 맞게 조정해야 한다.
