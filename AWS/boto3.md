@@ -55,3 +55,17 @@ s3_resource.create_bucket(
 ### boto3 사용 시 주의사항
 - **보안**: AWS 자격증명을 안전하게 관리해야 한다. 적절한 권한을 가진 IAM 사용자 또는 역할을 생성하고, 그 자격증명을 사용하는 것이 중요하다.
 - **비용**: AWS 서비스 사용에는 비용이 발생할 수 있다. 
+
+
+## 활용 함수
+```python
+# s3 bucket에 있는 파일을 읽는 함수
+def read_file_from_s3(bucket, key, encoding):
+    response = s3_client.get_object(Bucket=bucket, Key=key)
+    return response['Body'].read().decode(encoding)
+
+# s3 bucket에 있는 폴더 안의 모든 파일 이름을 읽어 리스트로 반환하는 함수
+def list_files_in_s3_folder(bucket, prefix, format):
+    response = s3_client.list_objects_v2(Bucket=bucket, Prefix=prefix)
+    return [item['Key'] for item in response.get('Contents', []) if item['Key'].endswith(format)]
+```
