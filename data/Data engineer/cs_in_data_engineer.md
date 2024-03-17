@@ -74,12 +74,12 @@ R은 통계 분석 및 데이터 시각화를 위한 프로그래밍 언어 및 
 
 ### 데이터베이스
 
-- [SQL (Structured Query Language)](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/SQL.md)
+- [SQL (Structured Query Language)](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Database/SQL/SQL_Index.md)
 
     - 관계형 데이터베이스 (MySQL, PostgreSQL)와 NoSQL 데이터베이스 (MongoDB, Cassandra) 이해
 
 1. 분산 시스템
-    - [Hadoop](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/Hadoop.md), [Spark](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/spark.md), [Apache Kafka](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/kafka.md)등의 분산 시스템 이해
+    - [Hadoop](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/HADOOP/Hadoop.md), [Spark](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/HADOOP/spark.md), [Apache Kafka](https://github.com/ChoiJeonSeok/TIL/blob/master/data/Data%20engineer/HADOOP/kafka.md)등의 분산 시스템 이해
 
 2. 데이터 처리
     - 데이터 파이프라인 구축
