@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
@@ -94,7 +95,24 @@ def plot_correlation_matrix(df, title="Correlation Matrix", cmap='coolwarm', ann
     plt.title(title)
     plt.show()
 
+def analyze_and_export_to_pdf(df, pdf_filename):
+    """
+    데이터프레임의 기본 통계 정보와 상관관계 분석을 수행하고 결과를 PDF 파일로 저장합니다.
+    """
+    with PdfPages(pdf_filename) as pdf:
+        # 기본 통계 정보를 PDF에 저장
+        fig, ax = plt.subplots()
+        ax.axis('tight')
+        ax.axis('off')
+        ax.table(cellText=df.describe().values, colLabels=df.describe().columns, loc='center')
+        pdf.savefig(fig, bbox_inches='tight')
+        plt.close()
 
+        # 상관관계 매트릭스를 PDF에 저장
+        fig, ax = plt.subplots()
+        sns.heatmap(df.corr(), annot=True, fmt=".2f", cmap='coolwarm', ax=ax)
+        pdf.savefig(fig, bbox_inches='tight')
+        plt.close()
 
 # 사용예시
 # CSV 파일 로드
@@ -123,3 +141,6 @@ def plot_correlation_matrix(df, title="Correlation Matrix", cmap='coolwarm', ann
 # 데이터프레임 내의 변수들 간 상관관계 매트릭스를 히트맵으로 시각화
 # 제목, 색상 팔레트(cmap), 상관계수 값 표시 여부(annot)를 사용자 정의 매개변수로 설정할 수 있다
 #plot_correlation_matrix(df, title="Correlation Matrix of DataFrame", cmap='viridis', annot=False)
+
+# 데이터 파일에 대한 탐색적 분석 후 결과를 pdf 파일로 변환하여 저장.
+#analyze_and_export_to_pdf(df, 'data_analysis.pdf')
