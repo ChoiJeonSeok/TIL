@@ -65,3 +65,7 @@
    - API Crawling
    - Ethics and Legal Aspects of Web Crawling
    - Blocking Web Crawling
+
+10. [TCP/UDP](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/TCP_UDP.md)
+   - TCP(Transmission Control Protocol)
+   - UDP(User Datagram Protocol)
