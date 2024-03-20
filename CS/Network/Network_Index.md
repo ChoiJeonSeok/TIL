@@ -47,25 +47,27 @@
    - Simple Mail Transfer Protocol (SMTP)
    - Dynamic Host Configuration Protocol (DHCP)
    - Hypertext Transfer Protocol (HTTP)
+     - HTTP Get 요청
+     - HTTP Post 요청
    - Hypertext Transfer Protocol Secure(HTTPS)
 <br><br>
 
-7. [Network Monitoring and Analysis](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Network_Monitoring_Analysis.md)
+1. [Network Monitoring and Analysis](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Network_Monitoring_Analysis.md)
    - Network Monitoring Tools
    - Packet Analysis Tools
 <br><br>
 
-8. [Cloud Networking](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Cloud_Networking.md)
+1. [Cloud Networking](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Cloud_Networking.md)
    - Virtual Network
    - Hybrid Network
    - Intercloud Connectivity
 
-9. [Web Crawling](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Web_Crawling.md)
+2. [Web Crawling](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/Web_Crawling.md)
    - Web Crawling
    - API Crawling
    - Ethics and Legal Aspects of Web Crawling
    - Blocking Web Crawling
 
-10. [TCP/UDP](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/TCP_UDP.md)
+3.  [TCP/UDP](https://github.com/ChoiJeonSeok/TIL/blob/master/CS/Network/Network_CS_Knowledge/TCP_UDP.md)
    - TCP(Transmission Control Protocol)
    - UDP(User Datagram Protocol)
